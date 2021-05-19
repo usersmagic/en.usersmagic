@@ -1,0 +1,33 @@
+doctype html
+html(lang="tr")
+  head
+    if meta
+      if meta == 'usersmagic'
+        meta(name="description" content="Usersmagic, whether be a tester or a company manager.")
+      else if meta == 'company'
+        meta(name="description" content="Usersmagic, the easiest way of making money by testing web platforms and apps. By using Usersmagic, you can earn money fast and easy. All of the data you have shared with us is secured by our user agreement. Why don't you start using Usersmagic now?")
+      else if meta == 'tester'
+        meta(name="description" content="Usersmagic, the easiest way of making money by testing web platforms and apps. By using Usersmagic, you can earn money fast and easy. All of the data you have shared with us is secured by our user agreement. Why don't you start using Usersmagic now?")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0, shrink-to-fit=no, maximum-scale=1.0, user-scalable=0")
+    if title
+      title Usersmagic | #{title}
+    else
+      title Usersmagic
+    link(href="https://fonts.googleapis.com/css?family=Manrope:100,200,300,400,500,600,700,800,900" rel="stylesheet")
+    if includes && includes.external
+      if includes.external.css
+        each file_name in includes.external.css
+          if file_name == 'page'
+            link(rel='stylesheet' href=`/css/${page}.css`)
+          else if file_name == 'fontawesome'
+            link(rel='stylesheet' href='https://use.fontawesome.com/releases/v5.2.0/css/all.css' integrity='sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ', crossorigin='anonymous')
+          else
+            link(rel='stylesheet' href=`/css/general/${file_name}.css`)
+      if includes.external.js
+        each file_name in includes.external.js
+          if file_name == 'page'
+            script(src=`/js/${page}.js`)
+          else
+            script(src=`/js/functions/${file_name}.js`)
+  body
+    block content
