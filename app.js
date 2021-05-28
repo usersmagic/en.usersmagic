@@ -27,11 +27,12 @@ if (cluster.isMaster) {
 
   const PORT = process.env.PORT || 3000;
   const mongoUri = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/usersmagic';
-  
+
   const companyRouteController = require('./routes/companyRoute');
   const indexRouteController = require('./routes/indexRoute');
+  const resourcesRouteController = require("./routes/resourcesRoute");
   const testerRouteController = require('./routes/testerRoute');
-  
+
   app.set('views', path.join(__dirname, 'views'));
   app.set('view engine', 'pug');
 
@@ -47,6 +48,7 @@ if (cluster.isMaster) {
   
   app.use('/', indexRouteController);
   app.use('/company', companyRouteController);
+  app.use("/resources", resourcesRouteController);
   app.use('/tester', testerRouteController);
   
   server.listen(PORT, () => {    
