@@ -111,8 +111,57 @@ block content
         .responses-wrapper
           .responses-left-wrapper
             .responses-questions-wrapper
+              .responses-questions-person-wrapper
+                img.responses-questions-person-image(src="/res/images/company/target_users/emma.png" alt="usersmagic analysing results")
+                .responses-questions-person-details
+                  span.responses-questions-person-title Emma
+                  span.responses-questions-person-details-button View Detailed Persona
+              span.each-response-question-title 1. How did you feel when you used...
+              span.each-response-question-answer • I hate confirming my email before trying.
+              span.each-response-question-title 2. How likely are you to recommend...
+              span.each-response-question-answer • 7/10
+              span.each-response-question-title 3. Who do you think would be...?
+              span.each-response-question-answer • I think that
             .responses-green-background-circle
             .responses-histogram-wrapper
+              .responses-histogram-subtitle
+                span Question type: Scale
+                span 40 responses
+              .responses-historam-title-outer-wrapper
+                .responses-histogram-title-wrapper
+                  span.responses-histogram-title Mean:
+                  span.responses-histogram-title-text 3.75
+                .responses-histogram-title-wrapper
+                  span.responses-histogram-title Median:
+                  span.responses-histogram-title-text 3.0
+              .responses-histogram-inner-wrapper
+                .responses-histogram-columns-wrapper
+                  .responses-histogram-each-column(style=`height: ${2/6*100}%`)
+                    span 2
+                  .responses-histogram-each-column-space
+                  .responses-histogram-each-column(style=`height: ${6/6*100}%`)
+                    span 6
+                  .responses-histogram-each-column-space
+                  .responses-histogram-each-column(style=`height: ${5/6*100}%`)
+                    span 5
+                  .responses-histogram-each-column-space
+                  .responses-histogram-each-column.responses-histogram-each-column-blue(style=`height: ${6/6*100}%`)
+                    span 6
+                  .responses-histogram-each-column-space
+                  .responses-histogram-each-column(style=`height: ${6/6*100}%`)
+                    span 6
+                  .responses-histogram-each-column-space
+                  .responses-histogram-each-column(style=`height: ${4/6*100}%`)
+                    span 4
+                  .responses-histogram-each-column-space
+                  .responses-histogram-each-column(style=`height: ${5/6*100}%`)
+                    span 5
+                  .responses-histogram-each-column-space
+                  .responses-histogram-each-column(style=`height: ${6/6*100}%`)
+                    span 6
+                .responses-histogram-bottom-line-wrapper
+                  - for(let i = 0; i < 8; i++)
+                    .responses-histogram-each-number= i
             .responses-yellow-background-circle
           .responses-right-wrapper
             span.info-content-subtitle Analysing Results
