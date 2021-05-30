@@ -48,6 +48,20 @@ function moveHorizontallyGradually(object, margin) {
     moveRightGradually(object, margin);
 }
 
+function slideUserQuoteSlider(slider) {
+  const leftMost = slider.childNodes[0];
+
+  if (leftMost.offsetLeft <= -600) {
+    leftMost.remove();
+    const newQuote = slider.childNodes[0].cloneNode(true);
+    slider.appendChild(newQuote);
+  }
+
+  slider.childNodes[0].style.marginLeft = (slider.childNodes[0].offsetLeft - 1) + 'px';
+
+  setTimeout(() => slideUserQuoteSlider(slider), 30);
+}
+
 window.onload = () => {
   createPageListener(); // Call create page listener to listen the create page
 
@@ -89,7 +103,11 @@ window.onload = () => {
       darkBlueBackground.classList.add('opacity-decrease-animation-class');
       darkBlueBackground.classList.remove('opacity-increase-animation-class');
 
-      moveHorizontallyGradually(borderLine, borderLine.parentNode.offsetWidth/2 - 100);
+      if (borderLine.offsetLeft - borderLine.parentNode.offsetLeft == 30) {
+        moveHorizontallyGradually(borderLine, borderLine.parentNode.offsetWidth/2 - 101);
+      } else {
+        moveHorizontallyGradually(borderLine, borderLine.parentNode.offsetWidth/2 - 99);
+      }
     }
 
     if (event.target.classList.contains('interactive-analyze-results-button') || event.target.parentNode.classList.contains('interactive-analyze-results-button') || event.target.parentNode.parentNode.classList.contains('interactive-analyze-results-button')) {
@@ -101,4 +119,8 @@ window.onload = () => {
       moveHorizontallyGradually(borderLine, borderLine.parentNode.offsetWidth - 235);
     }
   });
+
+  const userQuoteSliders = document.querySelectorAll('.user-quotes-slider');
+
+  userQuoteSliders.forEach(userQuoteSlider => slideUserQuoteSlider(userQuoteSlider));
 }

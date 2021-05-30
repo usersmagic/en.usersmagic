@@ -316,3 +316,40 @@ block content
                       span= user.hobbies
                       span= user.favorite_products
                       span= user.favorite_apps
+        .user-quotes-wrapper
+          span.user-quotes-subtitle Our Magical Users
+          span.user-quotes-title Hear From Our Users
+          .user-quotes-slider
+            each quote, i in user_quotes
+              if i % 2 == 0
+                .each-user-quote
+                  span.each-user-quote-text
+                    span “
+                    each text, i in quote.text
+                      if i % 2 == 0
+                        span= text
+                      else
+                        span.blue-quote-text #{` ${text} `}
+                    span ”
+                  .each-user-quote-person-wrapper
+                    .each-user-quote-person-details-wrapper
+                      span.each-user-quote-person-name= quote.name
+                      span.each-user-quote-person-position= quote.position
+                    img.each-user-quote-person-image(src=quote.image alt="usersmagic quote " + quote.name)
+          .user-quotes-slider
+            each quote, i in user_quotes
+              if i % 2 == 1
+                .each-user-quote(style=(i == 1 ? "margin-left: 300px" : ""))
+                  span.each-user-quote-text
+                    span “
+                    each text, i in quote.text
+                      if i % 2 == 0
+                        span= text
+                      else
+                        span.blue-quote-text #{` ${text} `}
+                    span ”
+                  .each-user-quote-person-wrapper
+                    .each-user-quote-person-details-wrapper
+                      span.each-user-quote-person-name= quote.name
+                      span.each-user-quote-person-position= quote.position
+                    img.each-user-quote-person-image(src=quote.image alt="usersmagic quote " + quote.name)

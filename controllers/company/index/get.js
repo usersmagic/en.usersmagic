@@ -103,6 +103,68 @@ module.exports = (req, res) => {
       food: 'Pret Subscription',
     }
   };
+  const user_quotes = [
+    {
+      name: 'Ceyda Balcı',
+      position: 'Digital Marketing & Content Manager, Teknosa',
+      image: '/res/images/company/user_quotes/teknosa.png',
+      text: [
+        'Usersmagic helped us not only validate our ideas but also really understand',
+        'why',
+        'our users behaved the way they did'
+      ]
+    },
+    {
+      name: 'Ceyda Balcı',
+      position: 'Digital Marketing & Content Manager, Teknosa',
+      image: '/res/images/company/user_quotes/teknosa.png',
+      text: [
+        'Usersmagic helped us not only validate our ideas but also really understand',
+        'why',
+        'our users behaved the way they did'
+      ]
+    },
+    {
+      name: 'Ceyda Balcı',
+      position: 'Digital Marketing & Content Manager, Teknosa',
+      image: '/res/images/company/user_quotes/teknosa.png',
+      text: [
+        'Usersmagic helped us not only validate our ideas but also really understand',
+        'why',
+        'our users behaved the way they did'
+      ]
+    },
+    {
+      name: 'Ceyda Balcı',
+      position: 'Digital Marketing & Content Manager, Teknosa',
+      image: '/res/images/company/user_quotes/teknosa.png',
+      text: [
+        'Usersmagic helped us not only validate our ideas but also really understand',
+        'why',
+        'our users behaved the way they did'
+      ]
+    },
+    {
+      name: 'Ceyda Balcı',
+      position: 'Digital Marketing & Content Manager, Teknosa',
+      image: '/res/images/company/user_quotes/teknosa.png',
+      text: [
+        'Usersmagic helped us not only validate our ideas but also really understand',
+        'why',
+        'our users behaved the way they did'
+      ]
+    },
+    {
+      name: 'Ceyda Balcı',
+      position: 'Digital Marketing & Content Manager, Teknosa',
+      image: '/res/images/company/user_quotes/teknosa.png',
+      text: [
+        'Usersmagic helped us not only validate our ideas but also really understand',
+        'why',
+        'our users behaved the way they did'
+      ]
+    }
+  ]
 
   return res.render('company/index', {
     page: 'company/index',
@@ -115,6 +177,7 @@ module.exports = (req, res) => {
       }
     },
     target_users,
-    target_user_details
+    target_user_details,
+    user_quotes
   });
 }
