@@ -62,6 +62,18 @@ function slideUserQuoteSlider(slider) {
   setTimeout(() => slideUserQuoteSlider(slider), 30);
 }
 
+function showEmmaUserDetails() {
+  const emmaWrapper = document.querySelector('.emma-user-details-wrapper');
+  const detailsButton = document.querySelector('.responses-questions-person-details-button');
+
+  if (emmaWrapper.style.display == 'none') {
+    emmaWrapper.style.display = 'block';
+    emmaWrapper.style.left = (detailsButton.offsetLeft + detailsButton.offsetWidth + 10) + 'px';
+    emmaWrapper.style.top = Math.max(0, (detailsButton.offsetTop - document.querySelector('.all-inner-wrapper').scrollTop - emmaWrapper.offsetHeight) + 10) + 'px';
+    console.log(emmaWrapper);
+  }
+}
+
 window.onload = () => {
   createPageListener(); // Call create page listener to listen the create page
 
@@ -121,6 +133,12 @@ window.onload = () => {
   });
 
   const userQuoteSliders = document.querySelectorAll('.user-quotes-slider');
-
   userQuoteSliders.forEach(userQuoteSlider => slideUserQuoteSlider(userQuoteSlider));
+
+  document.addEventListener('mouseover', event => {
+    if (event.target.classList.contains('responses-questions-person-details-button'))
+      showEmmaUserDetails();
+    else if (document.querySelector('.emma-user-details-wrapper').style.display == 'block')
+      document.querySelector('.emma-user-details-wrapper').style.display = 'none';
+  })
 }
