@@ -14,23 +14,84 @@ block content
             .all-header-content
                 a.all-header-login-button(target="_blank" href="https://app.usersmagic.com/auth/login") Login
                 a.all-header-register-button(target="_blank" href="https://app.usersmagic.com/auth/register") Register
-
         .all-inner-wrapper
             .start-content-wrapper
-                span.start-title Usersmagic Blog & Resources
-            .contents-titles
-                span.each-content-title Customers & Cases
-                span.each-content-title Company & Product Updates
-                span.each-content-title User Guides
-            .case-studies-header#case-studies-header
-                span.case-studies-header-title Customers & Cases
-                span.case-studies-view-all-span#view-all-button View all
-            hr
-            .case-studies-content#case-studies-content
-                each caseStudy in caseStudyArray
-                    if browser_lang == caseStudy.language
-                        .each-case-study-wrapper
-                            img.case-study-image(src=`${caseStudy.company_logo}`)
-                            .case-study-company-industry #{caseStudy.company_industry}
-                            .case-study-company-name #{caseStudy.company_name}
-                    
+                span.start-title Pricing
+            .pricings-content
+                .each-pricing
+                    .pricing-title(style="color=#031149") Free
+                    .pricing-description For startups and small businesses that are just getting started
+                    .prices-per-month-content
+                        .prices-per-month-content-price $0
+                        span /month
+                    a(href="https://app.usersmagic.com/auth/register", target="_blank", style="text-decoration:none; color:rgb(255, 255, 255)")
+                        .get-monthly-button Get monthly
+                    .each-pricing-privilege
+                        .icon-background-div
+                            i(class="fas fa-check")
+                        span.each-pricing-privilege-text 10 questions per survey
+                    .each-pricing-privilege
+                        .icon-background-div
+                            i(class="fas fa-check")
+                        span.each-pricing-privilege-text 20 answer limit per survey
+                    .each-pricing-privilege
+                        .icon-background-div
+                            i(class="fas fa-check")
+                        span.each-pricing-privilege-text 3 free templates
+                .each-pricing
+                    .pricing-title(style="color:#2EC5CE") Starter
+                    .pricing-description For startups and small businesses looking for some feedback
+                    .prices-per-month-content
+                        .prices-per-month-content-price $29
+                        span /month
+                    a(href="https://app.usersmagic.com/auth/register", target="_blank", style="text-decoration:none; color:rgb(255, 255, 255)")
+                        .get-monthly-button Get monthly
+                    .each-pricing-privilege
+                        .icon-background-div
+                            i(class="fas fa-check")
+                        span.each-pricing-privilege-text Basic targeting
+                    .each-pricing-privilege
+                        .icon-background-div
+                            i(class="fas fa-check")
+                        span.each-pricing-privilege-text Unlimited questions
+                    .each-pricing-privilege
+                        .icon-background-div
+                            i(class="fas fa-check")
+                        span.each-pricing-privilege-text Unlimited answers
+                    .each-pricing-privilege
+                        .icon-background-div
+                            i(class="fas fa-check")
+                        span.each-pricing-privilege-text Unlimited templates
+                    .each-pricing-privilege
+                        .icon-background-div
+                            i(class="fas fa-check")
+                        span.each-pricing-privilege-text 10 tester responses for free
+                .each-pricing
+                    .pricing-title(style="color:#FED355") Professional
+                    .pricing-description For high growth startups and large businesses
+                    .prices-per-month-content
+                        .prices-per-month-content-price $45
+                        span /month
+                    a(href="https://app.usersmagic.com/auth/register", target="_blank", style="text-decoration:none; color:rgb(255, 255, 255)")
+                        .get-monthly-button Get monthly
+                    .each-pricing-privilege
+                        .icon-background-div
+                            i(class="fas fa-check")
+                        span.each-pricing-privilege-text Detailed targeting
+                    .each-pricing-privilege
+                        .icon-background-div
+                            i(class="fas fa-check")
+                        span.each-pricing-privilege-text View user persona of testers
+                    .each-pricing-privilege
+                        .icon-background-div
+                            i(class="fas fa-check")
+                        span.each-pricing-privilege-text Monthly market insights
+                    .each-pricing-privilege
+                        .icon-background-div
+                            i(class="fas fa-check")
+                        span.each-pricing-privilege-text Download results in PDF, CSV
+                    .each-pricing-privilege
+                            .icon-background-div
+                                i(class="fas fa-check")
+                            span.each-pricing-privilege-text Everything in 
+                                span(style="color:#2ce5ce") Starter

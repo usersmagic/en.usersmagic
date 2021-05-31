@@ -20,7 +20,8 @@ block content
                         img.company_logo(src=`${caseStudy.company_logo}`)
                         .header-headline #{caseStudy.main_title}
                         .header-description #{caseStudy.main_description}
-                        .try-now-button Try now
+                        .try-now-button
+                            a(href="https://app.usersmagic.com/auth/register", style="text-decoration:none; color:rgb(244, 244, 244)", target="_blank") Try now
                     .header-big-image-content
                         img.main_company_image(src=`${caseStudy.main_company_image}`) 
                 .company-profile-card-section

@@ -1,53 +1,78 @@
 
+var viewAllButton = document.getElementById("view-all-button");
 var caseStudiesContent = document.getElementById("case-studies-content");
 var eachCaseStudy = document.querySelectorAll(".each-case-study-wrapper");
-var viewAllButton = document.getElementById("view-all-button");
+var caseStudyMargin;
+var caseStudyWidth;
 
 var firstElementsMarginRight;
-var numOfElementsVisible;
+var sumOfCaseStudyWidths;
 
-let i;
-var sumOfCaseStudyWidths = 0;
+var numOfElementsVisible = 0;
+
+function adjustResponsiveDesign () {
+
+    sumOfCaseStudyWidths = 0;
+    caseStudyMargin = 0;
+    caseStudyWidth = 0;
+    const caseStudiesContentWidth = caseStudiesContent.offsetWidth;
+
+    caseStudiesContent = document.getElementById("case-studies-content");
+    eachCaseStudy = document.querySelectorAll(".each-case-study-wrapper");
+
+    eachCaseStudy.forEach(caseStudy => {
+        caseStudy.style.marginRight = "auto";
+    })
+
+    for (let k = 0; k < caseStudiesContent.childNodes.length; k++) {
+        
+        caseStudyMargin = window.getComputedStyle(caseStudiesContent.childNodes[k]).marginRight;
+        caseStudyWidth = window.getComputedStyle(caseStudiesContent.childNodes[k]).width;
+
+        sumOfCaseStudyWidths += parseInt(caseStudyWidth) + parseInt(caseStudyMargin);
+
+        if (Math.abs(parseInt(caseStudiesContentWidth) - parseInt(sumOfCaseStudyWidths)) < 100) {
+            numOfElementsVisible = k + 1;
+            
+            for (i = 0; i < eachCaseStudy.length; i++) {
+                const caseStudy = eachCaseStudy[i];
+        
+                if ((i+1) % numOfElementsVisible == 0) {
+                    caseStudy.style.marginRight = 0;
+                    firstElementsMarginRight = window.getComputedStyle(eachCaseStudy[0]).marginRight;
+                }
+        
+                else if ((i+1) > (numOfElementsVisible - 1)) {
+                    caseStudy.style.marginRight = firstElementsMarginRight;
+                } else {
+                    caseStudy.style.marginRight = "auto";
+                }
+            }
+        
+            if (numOfElementsVisible === caseStudiesContent.childNodes.length) {
+                eachCaseStudy.forEach(caseStudy => {
+                    caseStudy.style.marginRight = "60px";
+                })
+            }
+        }
+    }
+}
 
 window.onload = () => {
 
     caseStudiesContent = document.getElementById("case-studies-content");
     eachCaseStudy = document.querySelectorAll(".each-case-study-wrapper");
     viewAllButton = document.getElementById("view-all-button");
-    
-    for (let k = 0; k < 100; k++) {
+    const initialHeightOfCaseStudyContent = caseStudiesContent.offsetHeight;
 
-        const caseStudyMargin = window.getComputedStyle(caseStudiesContent.childNodes[0]).marginRight;
-        const caseStudyWidth = window.getComputedStyle(caseStudiesContent.childNodes[0]).width;
-
-        sumOfCaseStudyWidths += parseInt(caseStudyWidth) + parseInt(caseStudyMargin);
-
-        if (Math.abs(parseInt(sumOfCaseStudyWidths) - parseInt(caseStudiesContent.offsetWidth)) < 100) {
-            numOfElementsVisible = k + 1;
-        }
-    }
-
-    for (i = 0; i < eachCaseStudy.length; i++) {
-        const caseStudy = eachCaseStudy[i];
-
-        if ((i+1) % numOfElementsVisible == 0) {
-            caseStudy.style.marginRight = 0;
-            firstElementsMarginRight = window.getComputedStyle(eachCaseStudy[0]).marginRight;
-        }
-
-        else if ((i+1) > (numOfElementsVisible - 1)) {
-            caseStudy.style.marginRight = firstElementsMarginRight;
-        }
-    }
-
-    if (i+1 < numOfElementsVisible) {
-        eachCaseStudy.forEach(caseStudy => {
-            caseStudy.style.marginRight = "60px";
-        })
+    if ((typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1)) {
+        ;
+    } else {
+        adjustResponsiveDesign();
     }
 
     function expandCaseStudies () {
-        if (caseStudiesContent.offsetHeight < 350) {
+        if (caseStudiesContent.offsetHeight === initialHeightOfCaseStudyContent) {
             if (caseStudiesContent.classList.contains("revert-height-animation")) {
                 caseStudiesContent.classList.remove("revert-height-animation");
             }
@@ -115,4 +140,10 @@ window.onload = () => {
         }
     }
     xhr.send();
+}
+
+if ((typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1)) {
+    ;
+} else {
+    window.onresize = adjustResponsiveDesign;
 }
