@@ -4,6 +4,8 @@
   "description": "Landing page under the subdomain en.usersmagic.com",
   "main": "app.js",
   "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
