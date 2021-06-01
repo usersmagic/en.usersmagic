@@ -74,17 +74,11 @@ function showEmmaUserDetails() {
 }
 
 window.onload = () => {
+  headerListener(); // Listen for header scroll
+  
   createPageListener(); // Call create page listener to listen the create page
   filterPageListener(); // Call filter page listener to listen the filter page
   reportPageListener(); // Call filter page listener to listen the filter page
-
-  const allHeader = document.querySelector('.all-header');
-  const allInnerWrapper = document.querySelector('.all-inner-wrapper');
-
-  allInnerWrapper.onscroll = () => {
-    allHeader.style.borderBottom = `1px solid rgba(236, 236, 236, ${Math.min(1, allInnerWrapper.scrollTop / 120)})`;
-    allHeader.style.boxShadow = `0 0 10px rgba(236, 236, 236, ${Math.min(1, allInnerWrapper.scrollTop / 120)})`;
-  };
 
   const targetUsers = JSON.parse(document.getElementById('target-users').value);
 
