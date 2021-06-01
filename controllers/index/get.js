@@ -1,3 +1,9 @@
+const { width, height } = require("screenz");
+
 module.exports = (req, res) => {
-  return res.json({ "error": "not yet written, go /company or /tester pls :)" });
+  if (width < 600) {
+    return res.redirect('/tester');
+  } else {
+    return res.redirect('/company');
+  }
 }

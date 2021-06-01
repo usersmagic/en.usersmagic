@@ -954,3 +954,95 @@
   margin-right: 50px;
 }
 
+@media only screen and (max-width: 1100px) and (min-width: 900px) {
+  .inside-product-outer-wrapper {
+    padding: 0 75px;
+    margin-top: 150px;
+  }
+  .logo-wrapper {
+    margin-top: 40px;
+    padding: 0px 55px;
+  }
+}
+@media only screen and (max-width: 900px) and (min-width: 300px) {
+  .inside-product-outer-wrapper {
+    padding: 0 50px;
+    margin-top: 100px;
+  }
+  .logo-wrapper {
+    margin-top: 30px;
+    padding: 0px 30px;
+  }
+  .each-logo {
+    margin: 0px 20px;
+    width: 50px;
+  }
+}
+
+
+@media only screen and (max-width: 800px) and (min-width: 300px) {
+  .start-title {
+    font-size: 50px;
+    line-height: 70px;
+  }
+  .start-text {
+    font-size: 16px;
+    line-height: 25px;
+    letter-spacing: 0.25px;
+    padding: 0px 50px;
+    margin-top: 20px;
+    width: 100%;
+  }
+  .start-button {
+    font-size: 16px;
+    padding: 15px 40px;
+  }
+}
+@media only screen and (max-width: 600px) and (min-width: 300px) {
+  .start-content-wrapper {
+    padding-top: 50px;
+  }
+  .start-title {
+    font-size: 40px;
+    line-height: 50px;
+  }
+  .start-button {
+    font-size: 15px;
+    padding: 15px 35px;
+  }
+}
+@media only screen and (max-width: 450px) and (min-width: 300px) {
+  .start-title {
+    font-size: 30px;
+    line-height: 40px;
+  }
+  .start-button {
+    font-size: 13px;
+    padding: 15px 20px;
+  }
+}
+
+@media only screen and (max-width: 1200px) and (min-width: 300px) {
+  .inside-product-gif {
+    width: 700px;
+    margin-top: -400px;
+  }
+  .inside-product-background-circle {
+    width: 150px;
+    height: 150px;
+    border-radius: 75px;
+    margin-top: 70px;
+  }
+}
+
+@media only screen and (max-width: 500px) and (min-width: 300px) {
+  .each-logo {
+    margin: 0px 10px;
+  }
+}
+@media only screen and (max-width: 350px) and (min-width: 300px) {
+  .each-logo {
+    width: 30px;
+    margin: 0px 10px;
+  }
+}
