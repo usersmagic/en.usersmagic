@@ -1,6 +1,8 @@
 extends ../partials/head
 block content
   input.display-none#target-users(type="text" value=JSON.stringify(target_user_details))
+  input.display-none#json-filters-data(type="text" value=JSON.stringify(filters))
+  input.display-none#json-target-data(type="text" value=JSON.stringify(target))
   .all-wrapper
     .all-header
       a.all-header-content(href="/company")
@@ -16,49 +18,6 @@ block content
         a.all-header-login-button(target="_blank" href="https://app.usersmagic.com/auth/login") Login
         a.all-header-register-button(target="_blank" href="https://app.usersmagic.com/auth/register") Register
     .all-inner-wrapper
-      .emma-user-details-wrapper(style="display: none;")
-        .target-users-details-header-wrapper
-          img.target-users-details-image(src=target_user_details.emma.image alt="usersmagic target users")
-          .target-users-details-content-info
-            span.target-users-details-content-title= target_user_details.emma.name
-            span.target-users-details-content-text= target_user_details.emma.text
-        .target-users-details-content-wrapper
-          .target-users-details-content-left-column
-              .each-target-users-info-item
-                svg(width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg")
-                  path(fill-rule="evenodd" clip-rule="evenodd" d="M7.5 1.27273C6.29188 1.27273 5.3125 2.26991 5.3125 3.5C5.3125 4.73009 6.29188 5.72727 7.5 5.72727C8.70812 5.72727 9.6875 4.73009 9.6875 3.5C9.6875 2.26991 8.70812 1.27273 7.5 1.27273ZM4.0625 3.5C4.0625 1.567 5.60152 0 7.5 0C9.39848 0 10.9375 1.567 10.9375 3.5C10.9375 5.433 9.39848 7 7.5 7C5.60152 7 4.0625 5.433 4.0625 3.5ZM5.58079 7.20094L5.64728 7.2733C5.68996 7.31983 5.75181 7.38737 5.82877 7.47174C5.98267 7.64042 6.19715 7.87655 6.43966 8.14646C6.76979 8.51389 7.15461 8.94699 7.50996 9.35893L9.41061 7.21047C9.54834 7.05478 9.75251 6.9781 9.95653 7.00544C10.4607 7.07298 10.9601 7.37205 11.3947 7.7398C11.8429 8.11905 12.284 8.62372 12.6726 9.20035C13.3351 10.1835 13.8852 11.4372 14.027 12.7273H14.375C14.7202 12.7273 15 13.0122 15 13.3636C15 13.7151 14.7202 14 14.375 14H0.625C0.279822 14 0 13.7151 0 13.3636C0 13.0122 0.279822 12.7273 0.625 12.7273H0.969411C1.09481 11.4697 1.57825 10.2907 2.21443 9.33705C2.9485 8.23665 3.9402 7.35724 4.93292 7.0308C5.16301 6.95513 5.41534 7.0214 5.58079 7.20094ZM2.22749 12.7273H12.767C12.6302 11.7443 12.1973 10.7447 11.6419 9.92039C11.3068 9.42316 10.9408 9.01057 10.5958 8.71865C10.3948 8.54858 10.2185 8.43426 10.0736 8.36275L7.96439 10.7469C7.84354 10.8835 7.67056 10.9602 7.49001 10.9573C7.30946 10.9544 7.13898 10.8721 7.02248 10.7316C6.58557 10.2048 5.99878 9.54134 5.51737 9.00553C5.30324 8.76721 5.11113 8.55543 4.96405 8.394C4.40164 8.69006 3.7741 9.26421 3.24846 10.0522C2.73069 10.8283 2.34788 11.7596 2.22749 12.7273Z" fill="#2EC5CE")
-                span.each-target-users-info-person= target_user_details.emma.person
-              .each-target-users-info-item
-                svg(width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg")
-                  path(fill-rule="evenodd" clip-rule="evenodd" d="M9.20412 2.27917C9.20412 1.02042 10.2726 0 11.5907 0C12.9087 0 13.9773 1.02042 13.9773 2.27917C13.9773 3.53791 12.9087 4.55834 11.5907 4.55834C10.2726 4.55834 9.20412 3.53791 9.20412 2.27917ZM11.5907 1.30238C11.0258 1.30238 10.5679 1.73971 10.5679 2.27917C10.5679 2.81863 11.0258 3.25596 11.5907 3.25596C12.1556 3.25596 12.6135 2.81863 12.6135 2.27917C12.6135 1.73971 12.1556 1.30238 11.5907 1.30238ZM5.91363 2.96555C6.08301 2.90954 6.26867 2.91948 6.43044 2.99321L10.1797 4.70214C10.3953 4.80041 10.5413 4.99928 10.5646 5.22634C10.5879 5.45341 10.4851 5.67556 10.2935 5.81191L7.32416 7.9258L10.2609 9.77206C10.4181 9.87086 10.5255 10.0273 10.5578 10.2043C10.59 10.3813 10.5443 10.5632 10.4313 10.7069L8.0476 13.7397C7.82152 14.0273 7.3941 14.0855 7.09292 13.8696C6.79173 13.6537 6.73084 13.2455 6.95692 12.9579L8.90524 10.479L5.7618 8.50284C5.57608 8.38609 5.46164 8.19019 5.45515 7.97794C5.44865 7.76569 5.55093 7.56374 5.7292 7.43683L8.5725 5.41269L6.09549 4.28366L3.63128 5.09851C3.27541 5.21618 2.88704 5.03607 2.76383 4.69623C2.64061 4.35638 2.8292 3.98548 3.18506 3.86781L5.91363 2.96555ZM14.8151 4.26409C15.0729 4.52619 15.0595 4.9383 14.785 5.18457L12.74 7.01963C12.5255 7.21211 12.2059 7.25142 11.9473 7.11713L11.033 6.64228C10.7022 6.47046 10.5798 6.07504 10.7598 5.7591C10.9397 5.44316 11.3537 5.32632 11.6845 5.49814L12.1656 5.74797L13.8512 4.23543C14.1257 3.98916 14.5572 4.002 14.8151 4.26409ZM5.47368 8.7756C5.77363 8.99306 5.83219 9.40156 5.60448 9.68801L4.592 10.9617C4.53541 11.0329 4.46409 11.0922 4.38247 11.1359L1.01558 12.9394C0.687127 13.1153 0.271518 13.0037 0.0872875 12.69C-0.0969429 12.3764 0.0199697 11.9795 0.348419 11.8035L3.59158 10.0663L4.51828 8.90051C4.74599 8.61406 5.17374 8.55813 5.47368 8.7756Z" fill="#2EC5CE")
-                span.each-target-users-info-sport= target_user_details.emma.sport
-              .each-target-users-info-item
-                svg(width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg")
-                  path(fill-rule="evenodd" clip-rule="evenodd" d="M11.4117 0.206361C11.6661 0.465437 11.6474 0.867979 11.3698 1.10547L8.9429 3.18182H13.6364C14.3895 3.18182 15 3.75163 15 4.45455V12.7273C15 13.4302 14.3895 14 13.6364 14H1.36364C0.610527 14 0 13.4302 0 12.7273V4.45455C0 3.75162 0.610527 3.18182 1.36364 3.18182H5.29224L3.65701 1.9227C3.36654 1.69904 3.32534 1.29795 3.56497 1.02685C3.80461 0.755748 4.23434 0.717289 4.52481 0.940948L7.16652 2.97507L10.4484 0.167269C10.726 -0.0702169 11.1572 -0.0527148 11.4117 0.206361ZM7.18881 4.45455H1.36364V12.7273H13.6364V4.45455H7.1912C7.1904 4.45455 7.18961 4.45455 7.18881 4.45455ZM12.2727 5.09091C12.6493 5.09091 12.9545 5.37582 12.9545 5.72727V6.04546C12.9545 6.39691 12.6493 6.68182 12.2727 6.68182C11.8962 6.68182 11.5909 6.39691 11.5909 6.04546V5.72777C11.5909 5.37631 11.8962 5.09091 12.2727 5.09091ZM3.40909 6.36364C3.40909 6.01218 3.71435 5.72727 4.09091 5.72727H9.54545C9.92201 5.72727 10.2273 6.01218 10.2273 6.36364V11.4545C10.2273 11.806 9.92201 12.0909 9.54545 12.0909H4.09091C3.71435 12.0909 3.40909 11.806 3.40909 11.4545V6.36364ZM4.77273 7V10.8182H8.86364V7H4.77273ZM12.2727 7.31818C12.6493 7.31818 12.9545 7.60309 12.9545 7.95455V8.27273C12.9545 8.62418 12.6493 8.90909 12.2727 8.90909C11.8962 8.90909 11.5909 8.62418 11.5909 8.27273V7.95455C11.5909 7.60309 11.8962 7.31818 12.2727 7.31818Z" fill="#2EC5CE")
-                span.each-target-users-info-watch= target_user_details.emma.watch
-              .each-target-users-info-item
-                svg(width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg")
-                  path(fill-rule="evenodd" clip-rule="evenodd" d="M14.7068 0.143143C14.8919 0.26956 14.9998 0.462486 14.9998 0.666672V3.36141C15.0001 3.37087 15.0001 3.38031 14.9998 3.38972V10.8C14.9998 11.8309 14.0355 12.6667 12.846 12.6667H11.346C10.1777 12.6667 9.23066 11.8459 9.23066 10.8333C9.23066 9.82081 10.1777 9 11.346 9H13.4614V4.21794L5.38455 5.87526V12.1333C5.38455 13.1643 4.42024 14 3.23073 14H2.11536C0.947078 14 0 13.1792 0 12.1667C0 11.1541 0.947078 10.3333 2.11536 10.3333H3.84611V5.36158C3.84588 5.35213 3.84588 5.3427 3.84611 5.3333V2.66667C3.84611 2.35841 4.08996 2.09035 4.43582 2.01841L14.0511 0.0184145C14.2802 -0.0292371 14.5218 0.0167269 14.7068 0.143143ZM5.38455 4.50507L13.4614 2.84775V1.51227L5.38455 3.19227V4.50507ZM3.84611 11.6667H2.11536C1.79674 11.6667 1.53844 11.8905 1.53844 12.1667C1.53844 12.4428 1.79674 12.6667 2.11536 12.6667H3.23073C3.57059 12.6667 3.84611 12.4279 3.84611 12.1333V11.6667ZM13.4614 10.3333H11.346C11.0274 10.3333 10.7691 10.5572 10.7691 10.8333C10.7691 11.1095 11.0274 11.3333 11.346 11.3333H12.846C13.1859 11.3333 13.4614 11.0945 13.4614 10.8V10.3333Z" fill="#2EC5CE")
-                span.each-target-users-info-music= target_user_details.emma.music
-          .target-users-details-content-right-column
-              .each-target-users-info-item
-                svg(width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg")
-                  path(fill-rule="evenodd" clip-rule="evenodd" d="M0 0.7C0 0.313401 0.298477 0 0.666666 0H1.83333C2.13924 0 2.4059 0.218608 2.48009 0.530225L2.85385 2.1H14.3333C14.5386 2.1 14.7325 2.19931 14.8588 2.36921C14.9851 2.53911 15.0299 2.76066 14.9801 2.96977L13.3134 9.96978C13.2392 10.2814 12.9726 10.5 12.6667 10.5H4C3.69409 10.5 3.42743 10.2814 3.35324 9.96978L1.31282 1.4H0.666666C0.298477 1.4 0 1.0866 0 0.7ZM3.18718 3.5L4.52052 9.1H12.1461L13.4795 3.5H3.18718Z" fill="#2EC5CE")
-                  path(fill-rule="evenodd" clip-rule="evenodd" d="M4 10.5C4.92047 10.5 5.66666 11.2835 5.66666 12.25C5.66666 13.2165 4.92047 14 4 14C3.07952 14 2.33333 13.2165 2.33333 12.25C2.33333 11.2835 3.07952 10.5 4 10.5ZM4 11.9C3.8159 11.9 3.66667 12.0567 3.66667 12.25C3.66667 12.4433 3.8159 12.6 4 12.6C4.18409 12.6 4.33333 12.4433 4.33333 12.25C4.33333 12.0567 4.18409 11.9 4 11.9Z" fill="#2EC5CE")
-                  path(fill-rule="evenodd" clip-rule="evenodd" d="M12.6667 10.5C13.5871 10.5 14.3333 11.2835 14.3333 12.25C14.3333 13.2165 13.5871 14 12.6667 14C11.7462 14 11 13.2165 11 12.25C11 11.2835 11.7462 10.5 12.6667 10.5ZM12.3333 12.25C12.3333 12.0567 12.4826 11.9 12.6667 11.9C12.8508 11.9 13 12.0567 13 12.25C13 12.4433 12.8508 12.6 12.6667 12.6C12.4826 12.6 12.3333 12.4433 12.3333 12.25Z" fill="#2EC5CE")
-                span.each-target-users-info-shopping= target_user_details.emma.shopping
-              .each-target-users-info-item
-                svg(width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg")
-                  path(fill-rule="evenodd" clip-rule="evenodd" d="M5.28918 0.0190002C5.34326 0.00638104 5.3988 0 5.45455 0H9.54545C9.6012 0 9.65674 0.00638104 9.71082 0.0190002L9.71374 0.0196854L9.71962 0.0210767L9.73997 0.0259653C9.75727 0.0301552 9.78191 0.0362057 9.81314 0.0440789C9.87557 0.0598176 9.96451 0.0828862 10.0739 0.112986C10.2921 0.173054 10.5942 0.261799 10.9307 0.376965C11.5831 0.600213 12.4438 0.948628 13.0501 1.42022C14.1682 2.2898 15 3.56674 15 4.77273V11.1364C15 11.4878 14.6947 11.7727 14.3182 11.7727H12.6136V13.3636C12.6136 13.7151 12.3084 14 11.9318 14H3.06818C2.69162 14 2.38636 13.7151 2.38636 13.3636V11.7727H0.681818C0.30526 11.7727 0 11.4878 0 11.1364V4.77273C0 3.56674 0.831849 2.2898 1.94987 1.42022C2.55621 0.948628 3.41691 0.600213 4.06926 0.376965C4.40578 0.261799 4.70786 0.173054 4.92612 0.112986C5.03549 0.0828862 5.12443 0.0598176 5.18686 0.0440789C5.21809 0.0362057 5.24273 0.0301552 5.26003 0.0259653L5.28038 0.0210767L5.28626 0.0196854L5.28918 0.0190002C5.28626 0.0196854 5.28038 0.0210767 5.28918 0.0190002ZM6.31879 1.27273H8.68121C8.44543 1.65315 8.00474 1.90909 7.5 1.90909C6.99526 1.90909 6.55457 1.65315 6.31879 1.27273ZM4.91489 1.44963C4.79772 1.48578 4.67102 1.52661 4.5387 1.5719C3.91264 1.78615 3.23924 2.0741 2.82285 2.39796C1.89542 3.11929 1.36364 4.06962 1.36364 4.77273V10.5H2.38636V4.77273C2.38636 4.42127 2.69162 4.13636 3.06818 4.13636C3.44474 4.13636 3.75 4.42127 3.75 4.77273V10.5H11.25V4.77273C11.25 4.42127 11.5553 4.13636 11.9318 4.13636C12.3084 4.13636 12.6136 4.42127 12.6136 4.77273V10.5H13.6364V4.77273C13.6364 4.06962 13.1046 3.11929 12.1771 2.39796C11.7608 2.0741 11.0874 1.78615 10.4613 1.5719C10.329 1.52661 10.2023 1.48578 10.0851 1.44963C9.72157 2.45663 8.70152 3.18182 7.5 3.18182C6.29848 3.18182 5.27842 2.45663 4.91489 1.44963ZM11.25 11.7727H3.75V12.7273H11.25V11.7727Z" fill="#2EC5CE")
-                span.each-target-users-info-clothing= target_user_details.emma.clothing
-              .each-target-users-info-item
-                svg(width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg")
-                  path(d="M8.24944 0.583374C12.0422 0.583374 14.375 3.34496 14.375 6.32304C14.375 8.50755 12.558 10.6464 10.086 11.368L9.93626 11.4088L9.97702 11.4798C10.1108 11.7011 10.3352 11.9815 10.6489 12.3142L10.7707 12.4414C11.0026 12.6801 10.9833 13.049 10.7277 13.2654C10.472 13.4819 10.0767 13.4639 9.84483 13.2253L9.72836 13.104L9.51123 12.8691C8.65096 11.9108 8.35085 11.2058 8.77981 10.6227C8.87307 10.4959 9.01618 10.4087 9.17802 10.3799C11.408 9.98317 13.125 8.13059 13.125 6.32304C13.125 3.9366 11.278 1.75004 8.24944 1.75004C5.88727 1.75004 4.61966 2.66336 4.25833 4.58661C4.22436 4.76743 4.10117 4.92278 3.92581 5.00593L3.37458 5.2702L3.04481 5.43128L2.35001 5.77908L2.39933 5.81245C2.89107 6.1562 3.13379 6.57173 2.94302 7.12337L2.90718 7.21658L2.84311 7.36057L2.76439 7.52392L2.4475 8.14689L2.34597 8.35778C2.31551 8.42344 2.28809 8.48528 2.26266 8.54576C2.06143 9.02429 2.03446 9.31917 2.12814 9.44114C2.18206 9.51134 2.27783 9.56191 2.47996 9.60754L2.63117 9.6374L2.81814 9.66676L3.39794 9.7416L3.48414 9.75425C4.09682 9.84675 4.54975 9.99439 4.95142 10.292C5.67648 10.8291 6.20533 11.6245 6.54629 12.6623C6.64749 12.9704 6.462 13.2966 6.13199 13.3911C5.80197 13.4855 5.45241 13.3124 5.35122 13.0044C5.07975 12.1781 4.68466 11.5838 4.17429 11.2057C3.99567 11.0734 3.76386 10.9896 3.41919 10.928L3.13058 10.8843L2.88266 10.8534C1.90819 10.7341 1.48466 10.6058 1.11222 10.1209C0.69721 9.58054 0.756289 8.93467 1.09907 8.11952L1.14599 8.01082L1.25112 7.78366L1.42912 7.42767L1.62778 7.03835L1.69384 6.90165L1.74251 6.79058L1.73043 6.78794L1.55037 6.68088L1.40639 6.60137L1.08688 6.43035C1.0708 6.42138 1.05732 6.41367 1.04737 6.40769C0.929209 6.33667 0.840874 6.26924 0.763199 6.16967C0.585745 5.94219 0.566233 5.63106 0.772994 5.38479C0.821868 5.32659 0.899372 5.26071 1.00985 5.18424L1.13148 5.10413L1.27607 5.01632L1.44456 4.92016L1.74426 4.75883L2.1032 4.57505L2.52463 4.36665L3.08938 4.09442L3.09768 4.05861C3.64673 1.8231 5.35004 0.639156 8.05456 0.585298L8.24944 0.583374ZM7.17653 2.9067C7.70505 2.82962 8.02333 2.91337 8.30631 3.17496L8.29813 3.1675L8.30182 3.16608L8.32279 3.16438C9.2397 3.16438 10.0437 3.37352 10.2618 3.91553L10.2781 3.96317L10.3547 3.9724L10.4505 3.9785L10.5508 3.98052C11.3675 3.98052 12.0087 5.28813 11.871 6.43736C11.7626 7.34366 11.0992 7.75607 10.137 7.67318L10.1047 7.66974C10.0559 7.77509 9.97328 7.86808 9.86085 7.93319C9.54257 8.11753 9.20543 8.37161 9.10182 8.50651L8.96753 8.67729L8.53926 9.21275C8.39983 9.39401 8.32931 9.51009 8.30182 9.59547L8.29397 9.62452C8.22663 9.9405 7.8976 10.1457 7.55905 10.0829C7.2205 10.02 7.00065 9.7129 7.06798 9.39693C7.07779 9.3509 7.09006 9.3052 7.1047 9.25972C7.17003 9.05682 7.27457 8.87112 7.43746 8.64754L7.58812 8.45101L7.82513 8.15375C7.43118 7.92924 7.24771 7.46649 7.26126 6.853L7.14156 6.82699C6.64303 6.70829 6.24059 6.53106 5.93572 6.28628L5.83771 6.20217C5.3191 5.72621 5.23446 5.0031 5.49499 4.06165C5.69185 3.44878 6.24657 3.07289 7.05077 2.92734L7.17653 2.9067ZM7.47337 4.04487L7.40006 4.05469L7.28877 4.07266L7.18855 4.09277C6.87257 4.16296 6.73488 4.2641 6.69888 4.37478C6.54455 4.93352 6.58142 5.2485 6.71414 5.37031C6.92492 5.56377 7.35799 5.71628 8.01895 5.79382C8.37298 5.83535 8.61798 6.14463 8.55673 6.47272C8.50122 6.77011 8.49447 6.98591 8.51728 7.10833L8.52313 7.13475C8.86954 7.10126 9.01751 7.02281 9.07728 6.8886L9.11626 6.78198C9.23442 6.51076 9.55471 6.35969 9.86408 6.44085L10.0645 6.49024C10.5152 6.59213 10.602 6.53189 10.6288 6.30781C10.6704 5.96031 10.6047 5.61535 10.4666 5.33368C10.4404 5.28037 10.4129 5.23228 10.386 5.19127L10.3506 5.1415L10.2059 5.13143C10.1494 5.12583 10.0935 5.11859 10.0382 5.10944L9.87447 5.076C9.50801 4.98602 9.21301 4.80321 9.10967 4.48955L9.09626 4.43975L9.05426 4.42613C8.8981 4.37725 8.68125 4.34381 8.45746 4.33402L8.19546 4.32722C7.86916 4.30684 7.64537 4.20487 7.44486 4.02067L7.47337 4.04487Z" fill="#2EC5CE")
-                span.each-target-users-info-head= target_user_details.emma.head
-              .each-target-users-info-item
-                svg(width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg")
-                  path(fill-rule="evenodd" clip-rule="evenodd" d="M4.59116e-05 6.36364C4.59116e-05 2.7877 3.42724 0 7.5 0C11.5728 0 15 2.7877 15 6.36364C15 6.71509 14.6947 7 14.3181 7H0.68186C0.305304 7 4.59116e-05 6.71509 4.59116e-05 6.36364ZM1.41183 5.72727H13.5882C13.213 3.26187 10.6881 1.27273 7.5 1.27273C4.31192 1.27273 1.78701 3.26187 1.41183 5.72727ZM0.132042 7.89641C0.354723 7.61299 0.781403 7.55172 1.08506 7.75956L2.59385 8.79225L4.69211 7.71513C4.89671 7.61011 5.14466 7.61011 5.34927 7.71514L7.5 8.81919L9.65073 7.71514C9.85533 7.61011 10.1033 7.61011 10.3079 7.71513L12.4062 8.79225L13.9149 7.75956C14.2186 7.55172 14.6453 7.61299 14.868 7.8964C15.0906 8.17982 15.025 8.57805 14.7213 8.78589L12.8619 10.0586C12.648 10.205 12.3625 10.2224 12.1301 10.103L9.97932 8.99899L7.82858 10.103C7.62398 10.2081 7.37602 10.2081 7.17142 10.103L5.02068 8.99899L2.86993 10.103C2.63751 10.2224 2.35205 10.205 2.13815 10.0586L0.27866 8.78589C-0.0249962 8.57806 -0.0906396 8.17982 0.132042 7.89641ZM4.59116e-05 11.4545C4.59116e-05 11.1031 0.305304 10.8182 0.68186 10.8182H14.3181C14.6947 10.8182 15 11.1031 15 11.4545V13.3636C15 13.7151 14.6947 14 14.3181 14H0.68186C0.305304 14 4.59116e-05 13.7151 4.59116e-05 13.3636V11.4545ZM1.36367 12.0909V12.7273H13.6363V12.0909H1.36367Z" fill="#2EC5CE")
-                span.each-target-users-info-food= target_user_details.emma.food
       .all-inner-wrapper-content
         .start-content-wrapper
           span.start-title User research
@@ -246,7 +205,7 @@ block content
                 .inside-product-close-button
                 .inside-product-minimize-button
                 .inside-product-open-button
-              .inside-product-content
+              .inside-product-content.inside-product-create-project-wrapper
                 .inside-product-header-wrapper
                   span.inside-product-header-logo-wrapper
                     img(src="/res/images/logo/light_blue_small_small.png" alt="usersmagic app")
@@ -324,6 +283,181 @@ block content
                         span.block-preview-header-title Preview
                         span.block-preview-header-subtitle Preview automatically reloads after auto save
                       .block-preview-content
+              .inside-product-content.inside-product-create-target-wrapper(style="display: none")
+                .inside-product-header-wrapper
+                  span.inside-product-header-logo-wrapper
+                    img(src="/res/images/logo/light_blue_small_small.png" alt="usersmagic app")
+                    span beta
+                  span.inside-product-header-settings-button
+                    i.fas.fa-cog
+                .inside-product-inner-content-wrapper
+                  .inside-product-inner-header-wrapper
+                    .header-user-logo
+                      img(src="/res/images/company/default/company.png" alt="usersmagic company")
+                    span.header-each-step-text Projects
+                    i.fas.fa-chevron-right.header-each-step-arrow
+                    span.header-each-step-text Project Name
+                    i.fas.fa-chevron-right.header-each-step-arrow
+                    span.header-each-step-text Filters
+                    i.fas.fa-chevron-right.header-each-step-arrow
+                    span.header-each-step-text College Students
+                    .header-credit-wrapper
+                      span.header-credit-amount 150 credits
+                      a.header-get-credit-button(target="_blank" href="https://app.usersmagic.com/auth/register") Get Credits
+                    .header-buttons-wrapper
+                      a.general-seablue-button.finish-project-button(target="_blank" href="https://app.usersmagic.com/auth/register")
+                        span Start Testing
+                  .inside-product-inner-wrapper
+                    .filters-wrapper
+                      .target-settings-wrapper
+                        img.each-type-image(src="/res/images/company/block_icons/filter.png" alt="usersmagic welcome block")
+                        span.each-type-title Choose Filters
+                      .custom-filters-wrapper
+                        .each-filter-wrapper.age-filter-wrapper#age(class=( ( target.filters && Object.keys(target.filters).includes('age') )  ? "selected-filter" : "") )
+                            span Age
+                        each filter in filters
+                          .each-filter-wrapper(id=filter._id.toString() class=( ( target.filters && Object.keys(target.filters).includes(filter._id.toString()) )  ? "selected-filter" : "") )
+                            span= filter.name
+                    .filter-settings-wrapper
+                      .filter-settings-header-wrapper
+                        img.each-type-image(src="/res/images/company/block_icons/filter.png" alt="usersmagic filters")
+                        span.each-type-title.settings-title Target Settings
+                        span.active-text(style="display: none;") Active
+                        .general-slider-button.active-slide-button(style="display: none;")
+                          div
+                      .filter-settings-content-wrapper
+                        span.general-input-title Name
+                          span.general-input-required-sign *
+                        input.general-input-with-border(type="text" name="name" value=target.name placeholder="Enter a clear name for you target group")
+                        span.general-input-title Description
+                          span.general-input-required-sign *
+                        textarea.general-input-with-border-long(type="text" name="description" placeholder="Explain your target group. This will make you job lot easier later")= target.description
+                    .show-filters-wrapper
+                      .show-filters-title-wrapper
+                        span.show-filters-title Selected Filters
+                      .show-filters-content-wrapper
+              .inside-product-content.inside-product-see-report-wrapper(style="display: none")
+                .inside-product-header-wrapper
+                  span.inside-product-header-logo-wrapper
+                    img(src="/res/images/logo/light_blue_small_small.png" alt="usersmagic app")
+                    span beta
+                  span.inside-product-header-settings-button
+                    i.fas.fa-cog
+                .inside-product-inner-content-wrapper
+                  .inside-product-inner-header-wrapper
+                    .header-user-logo
+                      img(src="/res/images/company/default/company.png" alt="usersmagic company")
+                    span.header-each-step-text Projects
+                    i.fas.fa-chevron-right.header-each-step-arrow
+                    span.header-each-step-text Project Name
+                    i.fas.fa-chevron-right.header-each-step-arrow
+                    span.header-each-step-text Results
+                    .header-credit-wrapper
+                      span.header-credit-amount 150 credits
+                      a.header-get-credit-button(target="_blank" href="https://app.usersmagic.com/auth/register") Get Credits
+                    .header-buttons-wrapper
+                      a.general-seablue-button.finish-project-button(target="_blank" href="https://app.usersmagic.com/auth/register")
+                        span Start Testing
+                  .inside-product-inner-wrapper
+                    .all-content-inner-content-wrapper
+                      .results-header-wrapper
+                        span.results-project-title User Research #2
+                        if questions && questions.length
+                          .results-download-button
+                            span.results-download-button-span Download Results
+                            .download-options-wrapper
+                              a.each-download-option(href="https://app.usersmagic.com/auth/register" target="_blank") .CSV
+                              a.each-download-option(href="https://app.usersmagic.com/auth/register" target="_blank") .PDF
+                      if questions && questions.length
+                        .questions-summary-results-wrapper
+                          each question in questions
+                            .summary-results-each-question-wrapper
+                              .summary-results-each-question-inner-wrapper
+                                span.summary-results-each-question-text= question.text
+                                .summary-results-each-question-info-wrapper
+                                  if question.type == 'yes_no'
+                                    span.summary-results-each-question-info-title #{Math.max(question.answers.yes, question.answers.no)}%
+                                    span.summary-results-each-question-info-data= (question.answers.yes >= question.answers.no ? 'YES' : 'NO')
+                                  else if question.type == 'multiple_choice'
+                                    span.summary-results-each-question-info-title= question.data.max
+                                    span.summary-results-each-question-info-data= question.answers[question.data.max]
+                                  else if question.type == 'opinion_scale'
+                                    span.summary-results-each-question-info-title mean
+                                    span.summary-results-each-question-info-data #{question.data.mean}/#{Object.keys(question.answers)[Object.keys(question.answers).length-1]}
+                                  else if question.type == 'open_answer'
+                                    span.summary-results-each-question-info-title answers
+                                    span.summary-results-each-question-info-data= question.answers.length
+                        .questions-all-wrapper
+                          each question, i in questions
+                            .each-question-wrapper
+                              span.each-question-number= i+1
+                              span.each-question-text= question.text
+                              span.each-question-details= question.details
+                              if question.type == 'yes_no'
+                                .yes-no-wrapper
+                                  .yes-content-wrapper
+                                    .yes-outer-wrapper
+                                      .yes-inner-wrapper(style=`height: ${question.answers.yes}%; margin-top: ${question.answers.no}%`)
+                                      .yes-no-icon-outer-wrapper
+                                        .yes-icon-wrapper
+                                          i.fas.fa-check
+                                        .yes-text YES
+                                    .yes-no-text-wrapper
+                                      span.yes-no-percentage-text #{question.answers.yes}%
+                                      span.yes-no-number-text #{question.data.yes_number} answers
+                                  .no-content-wrapper
+                                    .no-outer-wrapper
+                                      .no-inner-wrapper(style=`height: ${question.answers.no}%; margin-top: ${question.answers.yes}%`)
+                                      .yes-no-icon-outer-wrapper
+                                        .no-icon-wrapper
+                                          i.fas.fa-times
+                                        .no-text NO
+                                    .yes-no-text-wrapper
+                                      span.yes-no-percentage-text #{question.answers.no}%
+                                      span.yes-no-number-text #{question.data.no_number} answers
+                              else if question.type == 'multiple_choice'
+                                span.multiple-choice-answer-title #{question.data.total} answers
+                                .multiple-choice-answers-wrapper
+                                  each key in Object.keys(question.answers)
+                                    .each-multiple-choice
+                                      span.each-multiple-choice-text= key
+                                      span.each-multiple-choice-number= question.answers[key]
+                              else if question.type == 'open_answer'
+                                span.open-answer-title #{question.answers.length} answers
+                                .open-answer-wrapper
+                                  each answer in question.answers
+                                    span.each-answer= answer
+                              else if question.type == 'opinion_scale'
+                                .histogram-wrapper
+                                  .histogram-title-wrapper
+                                    span.histogram-title-text Histogram
+                                    span.histogram-title-answers-text #{question.data.total_number} answers
+                                  .histogram-title-wrapper
+                                    span.histogram-title-info Mean:
+                                      span.seablue  #{question.data.mean}
+                                    span.histogram-title-info Median:
+                                      span.seablue  #{question.data.median}
+                                  .histogram-inner-wrapper
+                                    each key, i in Object.keys(question.answers)
+                                      .histogram-each-column(style=`height: ${question.answer_percentages[key]}%`)
+                                        span.histogram-each-column-text= question.answers[key]
+                                      if i < Object.keys(question.answers).length-1
+                                        .histogram-column-seperator
+                                  .histogram-inner-line-wrapper
+                                    each key, i in Object.keys(question.answers)
+                                      .histogram-each-column-explanation= key
+                                      if i < Object.keys(question.answers).length-1
+                                        .histogram-column-seperator
+                                  .histogram-explanation-line
+                                    .histogram-explanation-line-item
+                                    .histogram-explanation-line-item
+                                    .histogram-explanation-line-item
+                                  .histogram-explanation-text-wrapper
+                                    span.histogram-explanation-text-left= question.labels.left
+                                    span.histogram-explanation-text-middle= question.labels.middle
+                                    span.histogram-explanation-text-right= question.labels.right
+                      else
+                        span.no-info-text We don't have any information on this page yet, please keep checking.
         .video-call-wrapper
           .video-call-left-wrapper
             .video-call-title-wrapper
@@ -396,3 +530,56 @@ block content
                       span.each-user-quote-person-name= quote.name
                       span.each-user-quote-person-position= quote.position
                     img.each-user-quote-person-image(src=quote.image alt="usersmagic quote " + quote.name)
+        .footer-wrapper
+          img.footer-logo(src="/res/images/company/footer_logo.png" alt="usersmagic logo")
+          .footer-links-wrapper
+            a.each-footer-link(href="/") Templates
+            a.each-footer-link(href="/resources") Resources
+            a.each-footer-link(href="/tester") Tester Page
+            a.each-footer-link(href="/pricing") Pricing
+            a.each-footer-link(href="https://tester.usersmagic.com/agreement/privacy" target="_blank") Privacy Policy
+          span.copyright-text Copyright 2020 - Usersmagic Inc.
+      .emma-user-details-wrapper(style="display: none;")
+        .target-users-details-header-wrapper
+          img.target-users-details-image(src=target_user_details.emma.image alt="usersmagic target users")
+          .target-users-details-content-info
+            span.target-users-details-content-title= target_user_details.emma.name
+            span.target-users-details-content-text= target_user_details.emma.text
+        .target-users-details-content-wrapper
+          .target-users-details-content-left-column
+              .each-target-users-info-item
+                svg(width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg")
+                  path(fill-rule="evenodd" clip-rule="evenodd" d="M7.5 1.27273C6.29188 1.27273 5.3125 2.26991 5.3125 3.5C5.3125 4.73009 6.29188 5.72727 7.5 5.72727C8.70812 5.72727 9.6875 4.73009 9.6875 3.5C9.6875 2.26991 8.70812 1.27273 7.5 1.27273ZM4.0625 3.5C4.0625 1.567 5.60152 0 7.5 0C9.39848 0 10.9375 1.567 10.9375 3.5C10.9375 5.433 9.39848 7 7.5 7C5.60152 7 4.0625 5.433 4.0625 3.5ZM5.58079 7.20094L5.64728 7.2733C5.68996 7.31983 5.75181 7.38737 5.82877 7.47174C5.98267 7.64042 6.19715 7.87655 6.43966 8.14646C6.76979 8.51389 7.15461 8.94699 7.50996 9.35893L9.41061 7.21047C9.54834 7.05478 9.75251 6.9781 9.95653 7.00544C10.4607 7.07298 10.9601 7.37205 11.3947 7.7398C11.8429 8.11905 12.284 8.62372 12.6726 9.20035C13.3351 10.1835 13.8852 11.4372 14.027 12.7273H14.375C14.7202 12.7273 15 13.0122 15 13.3636C15 13.7151 14.7202 14 14.375 14H0.625C0.279822 14 0 13.7151 0 13.3636C0 13.0122 0.279822 12.7273 0.625 12.7273H0.969411C1.09481 11.4697 1.57825 10.2907 2.21443 9.33705C2.9485 8.23665 3.9402 7.35724 4.93292 7.0308C5.16301 6.95513 5.41534 7.0214 5.58079 7.20094ZM2.22749 12.7273H12.767C12.6302 11.7443 12.1973 10.7447 11.6419 9.92039C11.3068 9.42316 10.9408 9.01057 10.5958 8.71865C10.3948 8.54858 10.2185 8.43426 10.0736 8.36275L7.96439 10.7469C7.84354 10.8835 7.67056 10.9602 7.49001 10.9573C7.30946 10.9544 7.13898 10.8721 7.02248 10.7316C6.58557 10.2048 5.99878 9.54134 5.51737 9.00553C5.30324 8.76721 5.11113 8.55543 4.96405 8.394C4.40164 8.69006 3.7741 9.26421 3.24846 10.0522C2.73069 10.8283 2.34788 11.7596 2.22749 12.7273Z" fill="#2EC5CE")
+                span.each-target-users-info-person= target_user_details.emma.person
+              .each-target-users-info-item
+                svg(width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg")
+                  path(fill-rule="evenodd" clip-rule="evenodd" d="M9.20412 2.27917C9.20412 1.02042 10.2726 0 11.5907 0C12.9087 0 13.9773 1.02042 13.9773 2.27917C13.9773 3.53791 12.9087 4.55834 11.5907 4.55834C10.2726 4.55834 9.20412 3.53791 9.20412 2.27917ZM11.5907 1.30238C11.0258 1.30238 10.5679 1.73971 10.5679 2.27917C10.5679 2.81863 11.0258 3.25596 11.5907 3.25596C12.1556 3.25596 12.6135 2.81863 12.6135 2.27917C12.6135 1.73971 12.1556 1.30238 11.5907 1.30238ZM5.91363 2.96555C6.08301 2.90954 6.26867 2.91948 6.43044 2.99321L10.1797 4.70214C10.3953 4.80041 10.5413 4.99928 10.5646 5.22634C10.5879 5.45341 10.4851 5.67556 10.2935 5.81191L7.32416 7.9258L10.2609 9.77206C10.4181 9.87086 10.5255 10.0273 10.5578 10.2043C10.59 10.3813 10.5443 10.5632 10.4313 10.7069L8.0476 13.7397C7.82152 14.0273 7.3941 14.0855 7.09292 13.8696C6.79173 13.6537 6.73084 13.2455 6.95692 12.9579L8.90524 10.479L5.7618 8.50284C5.57608 8.38609 5.46164 8.19019 5.45515 7.97794C5.44865 7.76569 5.55093 7.56374 5.7292 7.43683L8.5725 5.41269L6.09549 4.28366L3.63128 5.09851C3.27541 5.21618 2.88704 5.03607 2.76383 4.69623C2.64061 4.35638 2.8292 3.98548 3.18506 3.86781L5.91363 2.96555ZM14.8151 4.26409C15.0729 4.52619 15.0595 4.9383 14.785 5.18457L12.74 7.01963C12.5255 7.21211 12.2059 7.25142 11.9473 7.11713L11.033 6.64228C10.7022 6.47046 10.5798 6.07504 10.7598 5.7591C10.9397 5.44316 11.3537 5.32632 11.6845 5.49814L12.1656 5.74797L13.8512 4.23543C14.1257 3.98916 14.5572 4.002 14.8151 4.26409ZM5.47368 8.7756C5.77363 8.99306 5.83219 9.40156 5.60448 9.68801L4.592 10.9617C4.53541 11.0329 4.46409 11.0922 4.38247 11.1359L1.01558 12.9394C0.687127 13.1153 0.271518 13.0037 0.0872875 12.69C-0.0969429 12.3764 0.0199697 11.9795 0.348419 11.8035L3.59158 10.0663L4.51828 8.90051C4.74599 8.61406 5.17374 8.55813 5.47368 8.7756Z" fill="#2EC5CE")
+                span.each-target-users-info-sport= target_user_details.emma.sport
+              .each-target-users-info-item
+                svg(width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg")
+                  path(fill-rule="evenodd" clip-rule="evenodd" d="M11.4117 0.206361C11.6661 0.465437 11.6474 0.867979 11.3698 1.10547L8.9429 3.18182H13.6364C14.3895 3.18182 15 3.75163 15 4.45455V12.7273C15 13.4302 14.3895 14 13.6364 14H1.36364C0.610527 14 0 13.4302 0 12.7273V4.45455C0 3.75162 0.610527 3.18182 1.36364 3.18182H5.29224L3.65701 1.9227C3.36654 1.69904 3.32534 1.29795 3.56497 1.02685C3.80461 0.755748 4.23434 0.717289 4.52481 0.940948L7.16652 2.97507L10.4484 0.167269C10.726 -0.0702169 11.1572 -0.0527148 11.4117 0.206361ZM7.18881 4.45455H1.36364V12.7273H13.6364V4.45455H7.1912C7.1904 4.45455 7.18961 4.45455 7.18881 4.45455ZM12.2727 5.09091C12.6493 5.09091 12.9545 5.37582 12.9545 5.72727V6.04546C12.9545 6.39691 12.6493 6.68182 12.2727 6.68182C11.8962 6.68182 11.5909 6.39691 11.5909 6.04546V5.72777C11.5909 5.37631 11.8962 5.09091 12.2727 5.09091ZM3.40909 6.36364C3.40909 6.01218 3.71435 5.72727 4.09091 5.72727H9.54545C9.92201 5.72727 10.2273 6.01218 10.2273 6.36364V11.4545C10.2273 11.806 9.92201 12.0909 9.54545 12.0909H4.09091C3.71435 12.0909 3.40909 11.806 3.40909 11.4545V6.36364ZM4.77273 7V10.8182H8.86364V7H4.77273ZM12.2727 7.31818C12.6493 7.31818 12.9545 7.60309 12.9545 7.95455V8.27273C12.9545 8.62418 12.6493 8.90909 12.2727 8.90909C11.8962 8.90909 11.5909 8.62418 11.5909 8.27273V7.95455C11.5909 7.60309 11.8962 7.31818 12.2727 7.31818Z" fill="#2EC5CE")
+                span.each-target-users-info-watch= target_user_details.emma.watch
+              .each-target-users-info-item
+                svg(width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg")
+                  path(fill-rule="evenodd" clip-rule="evenodd" d="M14.7068 0.143143C14.8919 0.26956 14.9998 0.462486 14.9998 0.666672V3.36141C15.0001 3.37087 15.0001 3.38031 14.9998 3.38972V10.8C14.9998 11.8309 14.0355 12.6667 12.846 12.6667H11.346C10.1777 12.6667 9.23066 11.8459 9.23066 10.8333C9.23066 9.82081 10.1777 9 11.346 9H13.4614V4.21794L5.38455 5.87526V12.1333C5.38455 13.1643 4.42024 14 3.23073 14H2.11536C0.947078 14 0 13.1792 0 12.1667C0 11.1541 0.947078 10.3333 2.11536 10.3333H3.84611V5.36158C3.84588 5.35213 3.84588 5.3427 3.84611 5.3333V2.66667C3.84611 2.35841 4.08996 2.09035 4.43582 2.01841L14.0511 0.0184145C14.2802 -0.0292371 14.5218 0.0167269 14.7068 0.143143ZM5.38455 4.50507L13.4614 2.84775V1.51227L5.38455 3.19227V4.50507ZM3.84611 11.6667H2.11536C1.79674 11.6667 1.53844 11.8905 1.53844 12.1667C1.53844 12.4428 1.79674 12.6667 2.11536 12.6667H3.23073C3.57059 12.6667 3.84611 12.4279 3.84611 12.1333V11.6667ZM13.4614 10.3333H11.346C11.0274 10.3333 10.7691 10.5572 10.7691 10.8333C10.7691 11.1095 11.0274 11.3333 11.346 11.3333H12.846C13.1859 11.3333 13.4614 11.0945 13.4614 10.8V10.3333Z" fill="#2EC5CE")
+                span.each-target-users-info-music= target_user_details.emma.music
+          .target-users-details-content-right-column
+              .each-target-users-info-item
+                svg(width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg")
+                  path(fill-rule="evenodd" clip-rule="evenodd" d="M0 0.7C0 0.313401 0.298477 0 0.666666 0H1.83333C2.13924 0 2.4059 0.218608 2.48009 0.530225L2.85385 2.1H14.3333C14.5386 2.1 14.7325 2.19931 14.8588 2.36921C14.9851 2.53911 15.0299 2.76066 14.9801 2.96977L13.3134 9.96978C13.2392 10.2814 12.9726 10.5 12.6667 10.5H4C3.69409 10.5 3.42743 10.2814 3.35324 9.96978L1.31282 1.4H0.666666C0.298477 1.4 0 1.0866 0 0.7ZM3.18718 3.5L4.52052 9.1H12.1461L13.4795 3.5H3.18718Z" fill="#2EC5CE")
+                  path(fill-rule="evenodd" clip-rule="evenodd" d="M4 10.5C4.92047 10.5 5.66666 11.2835 5.66666 12.25C5.66666 13.2165 4.92047 14 4 14C3.07952 14 2.33333 13.2165 2.33333 12.25C2.33333 11.2835 3.07952 10.5 4 10.5ZM4 11.9C3.8159 11.9 3.66667 12.0567 3.66667 12.25C3.66667 12.4433 3.8159 12.6 4 12.6C4.18409 12.6 4.33333 12.4433 4.33333 12.25C4.33333 12.0567 4.18409 11.9 4 11.9Z" fill="#2EC5CE")
+                  path(fill-rule="evenodd" clip-rule="evenodd" d="M12.6667 10.5C13.5871 10.5 14.3333 11.2835 14.3333 12.25C14.3333 13.2165 13.5871 14 12.6667 14C11.7462 14 11 13.2165 11 12.25C11 11.2835 11.7462 10.5 12.6667 10.5ZM12.3333 12.25C12.3333 12.0567 12.4826 11.9 12.6667 11.9C12.8508 11.9 13 12.0567 13 12.25C13 12.4433 12.8508 12.6 12.6667 12.6C12.4826 12.6 12.3333 12.4433 12.3333 12.25Z" fill="#2EC5CE")
+                span.each-target-users-info-shopping= target_user_details.emma.shopping
+              .each-target-users-info-item
+                svg(width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg")
+                  path(fill-rule="evenodd" clip-rule="evenodd" d="M5.28918 0.0190002C5.34326 0.00638104 5.3988 0 5.45455 0H9.54545C9.6012 0 9.65674 0.00638104 9.71082 0.0190002L9.71374 0.0196854L9.71962 0.0210767L9.73997 0.0259653C9.75727 0.0301552 9.78191 0.0362057 9.81314 0.0440789C9.87557 0.0598176 9.96451 0.0828862 10.0739 0.112986C10.2921 0.173054 10.5942 0.261799 10.9307 0.376965C11.5831 0.600213 12.4438 0.948628 13.0501 1.42022C14.1682 2.2898 15 3.56674 15 4.77273V11.1364C15 11.4878 14.6947 11.7727 14.3182 11.7727H12.6136V13.3636C12.6136 13.7151 12.3084 14 11.9318 14H3.06818C2.69162 14 2.38636 13.7151 2.38636 13.3636V11.7727H0.681818C0.30526 11.7727 0 11.4878 0 11.1364V4.77273C0 3.56674 0.831849 2.2898 1.94987 1.42022C2.55621 0.948628 3.41691 0.600213 4.06926 0.376965C4.40578 0.261799 4.70786 0.173054 4.92612 0.112986C5.03549 0.0828862 5.12443 0.0598176 5.18686 0.0440789C5.21809 0.0362057 5.24273 0.0301552 5.26003 0.0259653L5.28038 0.0210767L5.28626 0.0196854L5.28918 0.0190002C5.28626 0.0196854 5.28038 0.0210767 5.28918 0.0190002ZM6.31879 1.27273H8.68121C8.44543 1.65315 8.00474 1.90909 7.5 1.90909C6.99526 1.90909 6.55457 1.65315 6.31879 1.27273ZM4.91489 1.44963C4.79772 1.48578 4.67102 1.52661 4.5387 1.5719C3.91264 1.78615 3.23924 2.0741 2.82285 2.39796C1.89542 3.11929 1.36364 4.06962 1.36364 4.77273V10.5H2.38636V4.77273C2.38636 4.42127 2.69162 4.13636 3.06818 4.13636C3.44474 4.13636 3.75 4.42127 3.75 4.77273V10.5H11.25V4.77273C11.25 4.42127 11.5553 4.13636 11.9318 4.13636C12.3084 4.13636 12.6136 4.42127 12.6136 4.77273V10.5H13.6364V4.77273C13.6364 4.06962 13.1046 3.11929 12.1771 2.39796C11.7608 2.0741 11.0874 1.78615 10.4613 1.5719C10.329 1.52661 10.2023 1.48578 10.0851 1.44963C9.72157 2.45663 8.70152 3.18182 7.5 3.18182C6.29848 3.18182 5.27842 2.45663 4.91489 1.44963ZM11.25 11.7727H3.75V12.7273H11.25V11.7727Z" fill="#2EC5CE")
+                span.each-target-users-info-clothing= target_user_details.emma.clothing
+              .each-target-users-info-item
+                svg(width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg")
+                  path(d="M8.24944 0.583374C12.0422 0.583374 14.375 3.34496 14.375 6.32304C14.375 8.50755 12.558 10.6464 10.086 11.368L9.93626 11.4088L9.97702 11.4798C10.1108 11.7011 10.3352 11.9815 10.6489 12.3142L10.7707 12.4414C11.0026 12.6801 10.9833 13.049 10.7277 13.2654C10.472 13.4819 10.0767 13.4639 9.84483 13.2253L9.72836 13.104L9.51123 12.8691C8.65096 11.9108 8.35085 11.2058 8.77981 10.6227C8.87307 10.4959 9.01618 10.4087 9.17802 10.3799C11.408 9.98317 13.125 8.13059 13.125 6.32304C13.125 3.9366 11.278 1.75004 8.24944 1.75004C5.88727 1.75004 4.61966 2.66336 4.25833 4.58661C4.22436 4.76743 4.10117 4.92278 3.92581 5.00593L3.37458 5.2702L3.04481 5.43128L2.35001 5.77908L2.39933 5.81245C2.89107 6.1562 3.13379 6.57173 2.94302 7.12337L2.90718 7.21658L2.84311 7.36057L2.76439 7.52392L2.4475 8.14689L2.34597 8.35778C2.31551 8.42344 2.28809 8.48528 2.26266 8.54576C2.06143 9.02429 2.03446 9.31917 2.12814 9.44114C2.18206 9.51134 2.27783 9.56191 2.47996 9.60754L2.63117 9.6374L2.81814 9.66676L3.39794 9.7416L3.48414 9.75425C4.09682 9.84675 4.54975 9.99439 4.95142 10.292C5.67648 10.8291 6.20533 11.6245 6.54629 12.6623C6.64749 12.9704 6.462 13.2966 6.13199 13.3911C5.80197 13.4855 5.45241 13.3124 5.35122 13.0044C5.07975 12.1781 4.68466 11.5838 4.17429 11.2057C3.99567 11.0734 3.76386 10.9896 3.41919 10.928L3.13058 10.8843L2.88266 10.8534C1.90819 10.7341 1.48466 10.6058 1.11222 10.1209C0.69721 9.58054 0.756289 8.93467 1.09907 8.11952L1.14599 8.01082L1.25112 7.78366L1.42912 7.42767L1.62778 7.03835L1.69384 6.90165L1.74251 6.79058L1.73043 6.78794L1.55037 6.68088L1.40639 6.60137L1.08688 6.43035C1.0708 6.42138 1.05732 6.41367 1.04737 6.40769C0.929209 6.33667 0.840874 6.26924 0.763199 6.16967C0.585745 5.94219 0.566233 5.63106 0.772994 5.38479C0.821868 5.32659 0.899372 5.26071 1.00985 5.18424L1.13148 5.10413L1.27607 5.01632L1.44456 4.92016L1.74426 4.75883L2.1032 4.57505L2.52463 4.36665L3.08938 4.09442L3.09768 4.05861C3.64673 1.8231 5.35004 0.639156 8.05456 0.585298L8.24944 0.583374ZM7.17653 2.9067C7.70505 2.82962 8.02333 2.91337 8.30631 3.17496L8.29813 3.1675L8.30182 3.16608L8.32279 3.16438C9.2397 3.16438 10.0437 3.37352 10.2618 3.91553L10.2781 3.96317L10.3547 3.9724L10.4505 3.9785L10.5508 3.98052C11.3675 3.98052 12.0087 5.28813 11.871 6.43736C11.7626 7.34366 11.0992 7.75607 10.137 7.67318L10.1047 7.66974C10.0559 7.77509 9.97328 7.86808 9.86085 7.93319C9.54257 8.11753 9.20543 8.37161 9.10182 8.50651L8.96753 8.67729L8.53926 9.21275C8.39983 9.39401 8.32931 9.51009 8.30182 9.59547L8.29397 9.62452C8.22663 9.9405 7.8976 10.1457 7.55905 10.0829C7.2205 10.02 7.00065 9.7129 7.06798 9.39693C7.07779 9.3509 7.09006 9.3052 7.1047 9.25972C7.17003 9.05682 7.27457 8.87112 7.43746 8.64754L7.58812 8.45101L7.82513 8.15375C7.43118 7.92924 7.24771 7.46649 7.26126 6.853L7.14156 6.82699C6.64303 6.70829 6.24059 6.53106 5.93572 6.28628L5.83771 6.20217C5.3191 5.72621 5.23446 5.0031 5.49499 4.06165C5.69185 3.44878 6.24657 3.07289 7.05077 2.92734L7.17653 2.9067ZM7.47337 4.04487L7.40006 4.05469L7.28877 4.07266L7.18855 4.09277C6.87257 4.16296 6.73488 4.2641 6.69888 4.37478C6.54455 4.93352 6.58142 5.2485 6.71414 5.37031C6.92492 5.56377 7.35799 5.71628 8.01895 5.79382C8.37298 5.83535 8.61798 6.14463 8.55673 6.47272C8.50122 6.77011 8.49447 6.98591 8.51728 7.10833L8.52313 7.13475C8.86954 7.10126 9.01751 7.02281 9.07728 6.8886L9.11626 6.78198C9.23442 6.51076 9.55471 6.35969 9.86408 6.44085L10.0645 6.49024C10.5152 6.59213 10.602 6.53189 10.6288 6.30781C10.6704 5.96031 10.6047 5.61535 10.4666 5.33368C10.4404 5.28037 10.4129 5.23228 10.386 5.19127L10.3506 5.1415L10.2059 5.13143C10.1494 5.12583 10.0935 5.11859 10.0382 5.10944L9.87447 5.076C9.50801 4.98602 9.21301 4.80321 9.10967 4.48955L9.09626 4.43975L9.05426 4.42613C8.8981 4.37725 8.68125 4.34381 8.45746 4.33402L8.19546 4.32722C7.86916 4.30684 7.64537 4.20487 7.44486 4.02067L7.47337 4.04487Z" fill="#2EC5CE")
+                span.each-target-users-info-head= target_user_details.emma.head
+              .each-target-users-info-item
+                svg(width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg")
+                  path(fill-rule="evenodd" clip-rule="evenodd" d="M4.59116e-05 6.36364C4.59116e-05 2.7877 3.42724 0 7.5 0C11.5728 0 15 2.7877 15 6.36364C15 6.71509 14.6947 7 14.3181 7H0.68186C0.305304 7 4.59116e-05 6.71509 4.59116e-05 6.36364ZM1.41183 5.72727H13.5882C13.213 3.26187 10.6881 1.27273 7.5 1.27273C4.31192 1.27273 1.78701 3.26187 1.41183 5.72727ZM0.132042 7.89641C0.354723 7.61299 0.781403 7.55172 1.08506 7.75956L2.59385 8.79225L4.69211 7.71513C4.89671 7.61011 5.14466 7.61011 5.34927 7.71514L7.5 8.81919L9.65073 7.71514C9.85533 7.61011 10.1033 7.61011 10.3079 7.71513L12.4062 8.79225L13.9149 7.75956C14.2186 7.55172 14.6453 7.61299 14.868 7.8964C15.0906 8.17982 15.025 8.57805 14.7213 8.78589L12.8619 10.0586C12.648 10.205 12.3625 10.2224 12.1301 10.103L9.97932 8.99899L7.82858 10.103C7.62398 10.2081 7.37602 10.2081 7.17142 10.103L5.02068 8.99899L2.86993 10.103C2.63751 10.2224 2.35205 10.205 2.13815 10.0586L0.27866 8.78589C-0.0249962 8.57806 -0.0906396 8.17982 0.132042 7.89641ZM4.59116e-05 11.4545C4.59116e-05 11.1031 0.305304 10.8182 0.68186 10.8182H14.3181C14.6947 10.8182 15 11.1031 15 11.4545V13.3636C15 13.7151 14.6947 14 14.3181 14H0.68186C0.305304 14 4.59116e-05 13.7151 4.59116e-05 13.3636V11.4545ZM1.36367 12.0909V12.7273H13.6363V12.0909H1.36367Z" fill="#2EC5CE")
+                span.each-target-users-info-food= target_user_details.emma.food
+      

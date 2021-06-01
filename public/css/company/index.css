@@ -78,7 +78,6 @@
   min-height: fit-content;
   display: flex;
   flex-direction: column;
-  padding-bottom: 100px;
 }
 
 .start-content-wrapper {
@@ -923,6 +922,7 @@
 }
 .user-quotes-title {
   margin-left: 150px;
+  margin-bottom: 50px;
   font-weight: 800;
   font-size: 48px;
   color: rgb(3, 17, 73);
@@ -931,7 +931,6 @@
   width: 100%;
   height: 290px;
   padding-top: 15px;
-  margin-top: 30px;
   overflow-x: hidden;
   overflow-y: visible;
   display: flex;
@@ -950,7 +949,7 @@
 }
 .each-user-quote-text {
   font-weight: 700;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 40px;
   color: rgb(3, 17, 73);
   width: 100%;
@@ -973,13 +972,13 @@
 }
 .each-user-quote-person-name {
   font-weight: 600;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 30px;
   color: rgba(3, 17, 73, 0.7);
 }
 .each-user-quote-person-position {
-  font-weight: 600;
-  font-size: 18px;
+  font-weight: 500;
+  font-size: 16px;
   line-height: 30px;
   color: rgba(3, 17, 73, 0.4);
 }
@@ -987,4 +986,45 @@
   width: 64px;
   height: 64px;
   margin-left: 20px;
+}
+
+.footer-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 100px;
+  align-self: center;
+  width: calc(100vw - 200px);
+  height: 300px;
+  padding-bottom: 50px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+.footer-logo {
+  margin-top: 50px;
+  margin-left: 100px;
+}
+.footer-links-wrapper {
+  margin-top: 40px;
+  margin-left: 100px;
+  display: flex;
+  align-items: center;
+}
+.each-footer-link {
+  font-weight: 400;
+  font-size: 16px;
+  color: rgb(3, 17, 73);
+  margin-right: 50px;
+  text-decoration: none;
+}
+.each-footer-link:hover {
+  text-decoration: underline;
+}
+.copyright-text {
+  font-weight: 300;
+  color: rgba(3, 17, 73, 0.5);
+  letter-spacing: 1%;
+  justify-self: flex-end;
+  margin-left: auto;
+  margin-top: auto;
+  margin-right: 50px;
 }
