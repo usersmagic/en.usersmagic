@@ -1,3 +1,7 @@
+// Get /company landing page
+
+const Question = require('../../../models/question/Question');
+
 module.exports = (req, res) => {
   const target_users = [
     {
@@ -164,20 +168,90 @@ module.exports = (req, res) => {
         'our users behaved the way they did'
       ]
     }
-  ]
-
-  return res.render('company/index', {
-    page: 'company/index',
-    title: 'Unleash Your Users\' Magic',
-    meta: 'company',
-    includes: {
-      external: {
-        css: ['page', 'general', 'header', 'confirm', 'logo', 'inputs', 'buttons', 'fontawesome', 'createPage'],
-        js: ['page', 'duplicateElement', 'confirm', 'dragAndDrop', 'buttonListeners', 'createPage']
-      }
+  ];
+  const target = {
+    _id: '00000000000',
+    filters: {},
+    status: 'approved',
+    project_id: '00000000000',
+    name: 'College Students',
+    description: 'The US students that are at the college',
+    country: 'us',
+    submition_limit: 0
+  };
+  const questions = [
+    {
+      "_id":"q45doctzyeb",
+      "type":"multiple_choice",
+      "text":"Android kullanıcısı mısınız, iPhone kullanıcısı mısınız?",
+      "details":"",
+      "answers": {"Android":14,"Iphone":11},
+      "data": {"max":"Android","total":25}
     },
-    target_users,
-    target_user_details,
-    user_quotes
+    {
+      "_id":"oiv79sp0ka",
+      "type":"opinion_scale",
+      "text":"Usersmagic uygulamasını Play Store veya App Store'da bulmak ne kadar kolaydı?",
+      "details":"",
+      "answers":{"1":14,"2":2,"3":2,"4":0,"5":3,"6":0,"7":2,"8":0,"9":0,"10":2},
+      "answer_percentages":{"1":56.00000000000001,"2":8,"3":8,"4":0,"5":12,"6":0,"7":8,"8":0,"9":0,"10":8},
+      "data":{"mean":2.9,"median":1,"total_number":25},
+      "range":{"min":1,"max":10},
+      "labels":{"left":"Çok Kolay","middle":"Orta","right":"Çok Zor"}
+    },
+    {
+      "_id":"4yzjo6xjzvd",
+      "type":"open_answer",
+      "text":"Neden?",
+      "details":"",
+      "answers":[
+        "Arama yerine yazınca altıncı sırada çıktı",
+        "Arama yerine yazdığım için hemen karşıma çıktı",
+        "Bulamadım",
+        "Yazar yazmaz çıktı çok kolay buldum",
+        "2. sıralarda çıktı ilk başta usersmagic yazınca başka uygulamalar çıktı.",
+        "Uygulamanın ismini yazınca ilk sırada çıktı o yüzden çok kolay oldu bulmak",
+        "Uygulamayı bulmak kolaydı, ismini yazınca en üstte çıktı",
+        "Çok kalay tek aramada buldum.",
+        "Ararken zorlandım, uygulama ismini başta yanlış yazdım",
+        "Arama kısmında dikkat çekmiyordu",
+        "İlk sıralarda çıkmıyor.",
+        "Arama çubuğuna yazar yazmaz çıktı",
+        "Bir çok uygulama olduğu için",
+        "Yazdım çıktı",
+        "Yazar yazmaz çıktı",
+        "Çok hızlı oldu",
+        "Adıni yazinca 6. Sirada cikti o yuzden 2 verdim",
+        "Arama butonuna yazdığım an çıktı bulması kolaydı.",
+        "Arama yerine yazınca altıncı sırada çıktı",
+        "Arama yerine yazdığım için hemen karşıma çıktı",
+        "Bulamadım",
+        "Yazar yazmaz çıktı çok kolay buldum",
+        "2. sıralarda çıktı ilk başta usersmagic yazınca başka uygulamalar çıktı.",
+        "Uygulamanın ismini yazınca ilk sırada çıktı o yüzden çok kolay oldu bulmak",
+      ]
+    }
+  ];
+
+  Question.getFiltersByCountry(target.country, (err, filters) => {
+    if (err) return res.redirect('/tester');
+
+    return res.render('company/index', {
+      page: 'company/index',
+      title: 'Unleash Your Users\' Magic',
+      meta: 'company',
+      includes: {
+        external: {
+          css: ['page', 'general', 'header', 'confirm', 'logo', 'inputs', 'buttons', 'fontawesome', 'createPage', 'filterPage', 'reportPage'],
+          js: ['page', 'duplicateElement', 'confirm', 'dragAndDrop', 'buttonListeners', 'createPage', 'filterPage', 'reportPage']
+        }
+      },
+      target_users,
+      target_user_details,
+      user_quotes,
+      target,
+      filters,
+      questions
+    });
   });
 }
