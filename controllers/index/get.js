@@ -1,9 +1,14 @@
-const { width, height } = require("screenz");
 
 module.exports = (req, res) => {
-  if (width < 600) {
-    return res.redirect('/tester');
-  } else {
-    return res.redirect('/company');
-  }
+  return res.render('index/index', {
+    page: 'index/index',
+    title: 'Unleash Your Users\' Magic',
+    meta: 'usersmagic',
+    includes: {
+      external: {
+        css: ['page', 'general', 'fontawesome'],
+        js: ['page']
+      }
+    }
+  });
 }
