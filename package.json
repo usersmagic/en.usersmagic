@@ -13,7 +13,7 @@
     "url": "git+https://github.com/usersmagic/en.usersmagic.git"
   },
   "engines": {
-    "node": "10.7.0"
+    "node": "14.17.0"
   },
   "author": "Yunus Gürlek",
   "license": "MIT",
