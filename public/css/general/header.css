@@ -131,4 +131,7 @@
   .all-header-each-button {
     margin: 0px;
   }
+  .all-header-content svg {
+    display: none;
+  }
 }
