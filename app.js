@@ -30,6 +30,7 @@ if (cluster.isMaster) {
 
   const companyRouteController = require('./routes/companyRoute');
   const indexRouteController = require('./routes/indexRoute');
+  const pricingRouteController = require('./routes/pricingRoute');
   const resourcesRouteController = require("./routes/resourcesRoute");
   const testerRouteController = require('./routes/testerRoute');
 
@@ -48,6 +49,7 @@ if (cluster.isMaster) {
   
   app.use('/', indexRouteController);
   app.use('/company', companyRouteController);
+  app.use('/pricing', pricingRouteController);
   app.use("/resources", resourcesRouteController);
   app.use('/tester', testerRouteController);
   

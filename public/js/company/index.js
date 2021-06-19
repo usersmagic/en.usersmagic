@@ -74,6 +74,8 @@ function showEmmaUserDetails() {
 }
 
 window.onload = () => {
+  headerListener(); // Listen for header scroll
+  
   createPageListener(); // Call create page listener to listen the create page
   filterPageListener(); // Call filter page listener to listen the filter page
   reportPageListener(); // Call filter page listener to listen the filter page
@@ -154,6 +156,10 @@ window.onload = () => {
 
   const userQuoteSliders = document.querySelectorAll('.user-quotes-slider');
   userQuoteSliders.forEach(userQuoteSlider => slideUserQuoteSlider(userQuoteSlider));
+
+  if (document.body.offsetWidth < 450) {
+    userQuoteSliders[1].style.display = "none";
+  }
 
   document.addEventListener('mouseover', event => {
     if (event.target.classList.contains('responses-questions-person-details-button'))

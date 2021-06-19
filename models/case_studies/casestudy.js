@@ -89,6 +89,10 @@ const caseStudySchema = mongoose.Schema({
     results_text: {
         type: String,
         required: false
+    },
+    language: {
+        type: String,
+        required: true
     }
 });
 
