@@ -131,4 +131,10 @@
   .all-header-each-button {
     margin: 0px;
   }
+<<<<<<< HEAD
+=======
+  .all-header-content svg {
+    display: none;
+  }
+>>>>>>> 90ad260640a75d25b5f1cd9b103ab0187739dd64
 }
