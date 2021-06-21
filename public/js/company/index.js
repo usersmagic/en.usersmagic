@@ -79,7 +79,6 @@ window.onload = () => {
   createPageListener(); // Call create page listener to listen the create page
   filterPageListener(); // Call filter page listener to listen the filter page
   reportPageListener(); // Call filter page listener to listen the filter page
-<<<<<<< HEAD
 
   const allHeader = document.querySelector('.all-header');
   const allInnerWrapper = document.querySelector('.all-inner-wrapper');
@@ -88,8 +87,6 @@ window.onload = () => {
     allHeader.style.borderBottom = `1px solid rgba(236, 236, 236, ${Math.min(1, allInnerWrapper.scrollTop / 120)})`;
     allHeader.style.boxShadow = `0 0 10px rgba(236, 236, 236, ${Math.min(1, allInnerWrapper.scrollTop / 120)})`;
   };
-=======
->>>>>>> 90ad260640a75d25b5f1cd9b103ab0187739dd64
 
   const targetUsers = JSON.parse(document.getElementById('target-users').value);
 
@@ -161,7 +158,7 @@ window.onload = () => {
   userQuoteSliders.forEach(userQuoteSlider => slideUserQuoteSlider(userQuoteSlider));
 
   if (document.body.offsetWidth < 450) {
-    userQuoteSliders[1].style.display = "none";
+    userQuoteSliders[1].style.display = 'none';
   }
 
   document.addEventListener('mouseover', event => {
