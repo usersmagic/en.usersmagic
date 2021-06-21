@@ -59,7 +59,7 @@ function adjustResponsiveDesign () {
 }
 
 window.onload = () => {
-
+    headerListener();
     caseStudiesContent = document.getElementById("case-studies-content");
     eachCaseStudy = document.querySelectorAll(".each-case-study-wrapper");
     viewAllButton = document.getElementById("view-all-button");

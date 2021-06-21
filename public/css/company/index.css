@@ -149,6 +149,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  min-width: 300px;
 }
 
 .target-users-right-wrapper {
@@ -955,31 +956,36 @@
 }
 
 @media only screen and (max-width: 1100px) and (min-width: 900px) {
-  .inside-product-outer-wrapper {
-    padding: 0 75px;
-    margin-top: 150px;
-  }
   .logo-wrapper {
     margin-top: 40px;
     padding: 0px 55px;
   }
-  .logo-above-text {
-    margin-top: 150px;
+  .inside-product-background-circle {
+    margin-right: -100px;
   }
-  .target-users-wrapper {
-    padding-left: 75px;
-    margin-top: 150px;
+  .inside-product-background-image {
+    margin-left: -50px;
   }
   .responses-wrapper {
-    padding: 0px 75px;
-    margin-top: 150px;
+    flex-direction: column-reverse;
+  }
+  .responses-right-wrapper {
+    width: 100%;
+    margin-bottom: 100px;
+  }
+  .responses-left-wrapper {
+    margin-left: 120px;
+  }
+  .templates-wrapper {
+    width: 100%;
+    flex-direction: column;
+  }
+  .templates-left-wrapper {
+    width: 100%;
+    max-width: 100%;
   }
 }
-@media only screen and (max-width: 900px) and (min-width: 300px) {
-  .inside-product-outer-wrapper {
-    padding: 0 50px;
-    margin-top: 100px;
-  }
+@media only screen and (max-width: 900px) and (min-width: 450px) {
   .logo-wrapper {
     margin-top: 30px;
     padding: 0px 30px;
@@ -988,26 +994,91 @@
     margin: 0px 20px;
     width: 50px;
   }
-  .logo-above-text {
-    width: 500px;
-    font-size: 16px;
-    line-height: 25px;
+  .inside-product-background-image {
+    width: 100px;
+    margin-left: 50px;
+  }
+  .inside-product-outer-wrapper {
+    width: 100%;
+    margin-top: 100px;
+    padding: 0px 10px;
+    margin-bottom: 50px;
+  }
+  .inside-product-gif {
+    width: 700px;
+    margin-top: -500px;
+  }
+  .inside-product-wrapper-background {
+    width: 100%;
+    height: 600px;
+  }
+  .inside-product-background-circle {
+    width: 100px;
+    height: 100px;
+    margin-top: 280px;
+    margin-bottom: 10px;
+    margin-right: 5%;
   }
   .logo-above-text {
-    margin-top: 100px;
+    width: 100%;
+    padding-left: 40px;
+    padding-right: 40px;
   }
   .target-users-wrapper {
-    padding-left: 50px;
+    flex-wrap: wrap;
+  }
+  .target-users-details-wrapper {
     margin-top: 100px;
   }
+  .target-users-right-wrapper {
+    width: 100%;
+  }
+  .target-users-list-wrapper {
+    margin-top: -50px;
+    margin-left: 300px;
+    width: 100%;
+    max-width: 100%;
+    padding: 10px 40px;
+    padding-left: 0;
+  }
   .responses-wrapper {
-    padding: 0px 50px;
-    margin-top: 100px;
+    flex-direction: column-reverse;
+  }
+  .responses-right-wrapper {
+    width: 100%;
+    margin-bottom: 100px;
+  }
+  .templates-wrapper {
+    flex-direction: column;
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .templates-left-wrapper {
+    width: 100%;
+  }
+  .video-call-wrapper {
+    width: 100%;
+    flex-direction: column;
+    padding-left: 50px;
+  }
+  .video-call-left-wrapper {
+    width: 80%;
+    margin-bottom: 100px;
+  }
+  .video-call-right-wrapper {
+    width: 100%;
+  }
+  .video-call-users-wrapper {
+    width: 120%;
+    max-width: 120%;
+    margin-right: 0;
+    margin-left: 300px;
   }
 }
 
 
-@media only screen and (max-width: 800px) and (min-width: 300px) {
+@media only screen and (max-width: 800px) and (min-width: 450px) {
   .start-title {
     font-size: 50px;
     line-height: 70px;
@@ -1024,8 +1095,82 @@
     font-size: 16px;
     padding: 15px 40px;
   }
+  .inside-product-background-image {
+    width: 100px;
+    margin-left: 50px;
+  }
+  .inside-product-outer-wrapper {
+    width: 100%;
+    margin-top: 100px;
+    padding: 0px 10px;
+    margin-bottom: 50px;
+  }
+  .inside-product-gif {
+    width: 500px;
+    margin-top: -500px;
+  }
+  .inside-product-wrapper-background {
+    width: 100%;
+    height: 600px;
+  }
+  .inside-product-background-circle {
+    width: 100px;
+    height: 100px;
+    margin-top: 180px;
+    margin-bottom: 10px;
+    margin-right: 10%;
+  }
+  .logo-above-text {
+    width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .target-users-wrapper {
+    flex-wrap: wrap;
+    padding-left: 50px;
+  }
+  .target-users-details-wrapper {
+    margin-top: 100px;
+  }
+  .target-users-right-wrapper {
+    width: 100%;
+  }
+  .target-users-list-wrapper {
+    width: 100%;
+    max-width: 100%;
+    margin-right: 0;
+  }
 }
-@media only screen and (max-width: 600px) and (min-width: 300px) {
+@media only screen and (max-width: 600px) and (min-width: 450px) {
+  .footer-wrapper {
+    width: 100%;
+    height: 200px;
+    margin-top: 50px;
+  }
+  .footer-logo {
+    width: 84px;
+    margin: 30px 20px;
+    margin-bottom: 10px;
+  }
+  .copyright-text {
+    display: none;
+  }
+  .footer-links-wrapper {
+    margin: 30px 20px;
+  }
+  .each-footer-link {
+    font-size: 12px;
+    line-height: 10px;
+    width: 100px;
+    margin-right: 10px;
+  }
+  .each-logo {
+    width: 50px;
+    margin: 0px 10px;
+  }
+  .inside-product-wrapper {
+    width: 400px !important;
+  }
   .start-content-wrapper {
     padding-top: 50px;
   }
@@ -1037,296 +1182,542 @@
     font-size: 15px;
     padding: 15px 35px;
   }
-}
-@media only screen and (max-width: 450px) and (min-width: 300px) {
-  .start-title {
-    font-size: 30px;
-    line-height: 40px;
+  .inside-product-background-image {
+    width: 50px;
+    margin-left: 20px;
   }
-  .start-button {
-    font-size: 13px;
-    padding: 15px 20px;
+  .inside-product-outer-wrapper {
+    width: 100%;
+    margin-top: 100px;
+    padding: 0px 10px;
+    margin-bottom: 50px;
   }
-}
-
-@media only screen and (max-width: 1200px) and (min-width: 300px) {
   .inside-product-gif {
-    width: 700px;
-    margin-top: -400px;
+    width: 400px;
+    margin-top: -500px;
+  }
+  .inside-product-wrapper-background {
+    width: 100%;
+    height: 560px;
   }
   .inside-product-background-circle {
+    width: 100px;
+    height: 100px;
+    margin-top: 150px;
+    margin-bottom: 10px;
+    margin-right: 2%;
+  }
+  .logo-above-text {
+    width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .target-users-wrapper {
+    flex-wrap: wrap;
+    padding-left: 30px;
+  }
+  .target-users-details-wrapper {
+    margin-top: 100px;
+  }
+  .target-users-right-wrapper {
+    width: 100%;
+  }
+  .target-users-list-wrapper {
+    width: 100%;
+    max-width: 100%;
+    margin-right: 0;
+  }
+  .responses-wrapper {
+    width: 100%;
+    padding-left: 30px;
+  }
+  .target-users-wrapper {
+    flex-wrap: wrap;
+    padding-left: 30px;
+  }
+  .target-users-details-wrapper {
+    margin-top: 100px;
+    width: 450px;
+  }
+  .target-users-right-wrapper {
+    width: 100%;
+  }
+  .target-users-list-wrapper {
+    width: 100%;
+    max-width: 100%;
+    margin-right: 0;
+    margin-left: 220px;
+  }
+  .video-call-right-wrapper {
+    margin-left: -20px;
+  }
+  .video-call-users-wrapper {
+    width: 120%;
+    max-width: 120%;
+    margin-left: 250px;
+  }
+  .user-quotes-subtitle {
+    margin-left: 20px;
+  }
+  .user-quotes-title {
+    margin-left: 20px;
+  }
+}
+@media only screen and (max-width: 450px) and (min-width: 300px) {
+  .start-content-wrapper {
+    padding-top: 40px;
+  }
+  .start-title {
+    font-size: 24px;
+    line-height: 35px;
+  }
+  .start-button {
+    font-size: 10px;
+    font-weight: bold;
+    padding: 15px 20px;
+  }
+  .start-text {
+    width: 310px;
+    padding: 0 8px;
+    font-size: 10px;
+    line-height: 18px;
+    font-weight: bold;
+  }
+  .inside-product-background-image {
+    display: none;
+  }
+  .inside-product-outer-wrapper {
+    width: 100%;
+    margin-top: 100px;
+    padding: 0px 10px;
+    margin-bottom: 50px;
+  }
+  .inside-product-gif {
+    width: 300px;
+    margin-top: -200px;
+  }
+  .inside-product-wrapper-background {
+    width: 100%;
+  }
+  .inside-product-background-circle {
+    width: 37px;
+    height: 37px;
+    margin-top: 100px;
+    margin-bottom: 10px;
+    margin-right: 3%;
+  }
+  .logo-above-text {
+    margin-top: 10px;
+    font-size: 10px;
+    line-height: 20px;
+    width: 300px;
+  }
+  .logo-wrapper {
+    margin-top: 10px;
+  }
+  .interactive-screen-wrapper {
+    display: none;
+  }
+  .target-users-wrapper {
+    margin-top: 100px;
+    padding-left: 20px;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+  .target-users-left-wrapper {
+    width: 100%;
+    margin-bottom: 100px;
+  }
+  .info-content-subtitle {
+    font-size: 10px;
+    width: 90%;
+    line-height: 30px;
+  }
+  .info-content-title {
+    font-size: 18px;
+    line-height: 25px;
+    width: 60%;
+  }
+  .info-content-text {
+    font-size: 10px;
+    line-height: 20px;
+    width: 90%;
+  }
+  .seablue-button {
+    font-size: 10px;
+    padding: 10px 10px;
+    margin-top: 25px;
+  }
+  .target-users-right-wrapper {
+    flex: 3;
+    max-width: 100%;
+    margin-left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .target-users-details-wrapper {
+    width: 90%;
+    height: 200px;
+    padding: 20px 20px;
+  }
+  .target-users-details-image {
+    width: 50px;
+    height: 50px;
+  }
+  .target-users-details-content-title {
+    font-size: 12px;
+    line-height: 30px;
+  } 
+  .target-users-details-content-text {
+    font-size: 6px;
+    line-height: 10px;
+    margin-top: 0;
+  }
+  .each-target-users-info-item span {
+    margin-left: 5px;
+    font-weight: 600;
+    font-size: 8px;
+    line-height: 15px;
+    color: rgb(3, 17, 73);
+  }
+  .target-users-details-content-wrapper {
+    margin-top: 10px;
+  }
+  .target-users-background-circle {
+    margin-top: -15px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50px;
+    background-color: rgb(218, 196, 174);
+    margin-left: -10px;
+  }
+  .target-users-list-wrapper {
+    margin-top: -50px;
+    margin-left: 75px;
+    width: 100%;
+    max-width: 100%;
+    height: 100px;
+    padding: 10px 40px;
+    padding-left: 0;
+  }
+  .target-users-list-header {
+    height: 15px;
+    padding-top: 5px;
+    margin-bottom: 5px;
+    flex: 1;
+    padding-left: 35px;
+  }
+  .target-users-list-header span {
+    font-size: 8px;
+    line-height: 10px;
+    width: 50px;
+    margin-left: 5px;
+  }
+  .each-target-user {
+    height: 15px;
+    padding-left: 5px;
+  }
+  .each-target-user img {
+    width: 10px;
+    height: 10px;
+  }
+  .each-target-user span {
+    font-size: 6px;
+    line-height: 15px;
+    margin-left: 0;
+    width: 60px;
+    line-height: 8px;
+  }
+  .responses-wrapper {
+    margin-top: 100px;
+    flex-direction: column-reverse;
+    padding-left: 30px;
+    padding-right: 20px;
+    width: 100%;
+  }
+  .responses-right-wrapper {
+    width: 100%;
+    margin-bottom: 50px;
+  }
+  .responses-left-wrapper {
+    width: 100%;
+  }
+  .responses-questions-wrapper {
+    margin-left: 0;
+    width: 153px;
+    height: 132px;
+    padding: 10px;
+  }
+  .responses-questions-person-image {
+    width: 20px;
+    height: 20px;
+  }
+  .responses-questions-person-title {
+    font-size: 10px;
+    line-height: 10px;
+  }
+  .responses-questions-person-details-button {
+    font-size: 6px;
+    line-height: 10px;
+  }
+  .responses-questions-person-wrapper {
+    align-items: center;
+    margin-bottom: 5px;
+  }
+  .responses-green-background-circle {
+    margin-top: -30px;
+    margin-left: 90px;
+  }
+  .responses-yellow-background-circle {
+    display: none;
+  }
+  .each-response-question-title {
+    font-size: 7px;
+    line-height: 15px;
+  }
+  .each-response-question-answer {
+    font-size: 6px;
+    line-height: 15px;
+    margin-bottom: 1px;
+  }
+  .responses-histogram-wrapper {
+    width: 200px;
+    height: 164px;
+  }
+  .responses-histogram-subtitle span {
+    font-size: 7px;
+  }
+  .responses-histogram-title-wrapper span {
+    font-size: 12px;
+  }
+  .responses-histogram-inner-wrapper {
     width: 150px;
+    height: 80px;
+  }
+  .responses-histogram-columns-wrapper {
+    width: 100%;
+    height: 100%;
+  }
+  .responses-histogram-each-column span {
+    font-size: 8px;
+  }
+  .responses-histogram-bottom-line-wrapper {
+    width: 92%;
+  }
+  .emma-user-details-wrapper {
+    width: 200px;
+    height: 250px;
+    padding: 10px;
+  }
+  .templates-wrapper {
+    width: 100%;
+    margin-top: 40px;
+    flex-direction: column;
+    padding: 0 30px;
+  }
+  .templates-left-wrapper {
+    width: 100%;
+  }
+  .video-call-wrapper {
+    width: 100%;
+    margin-top: 100px;
+    padding: 0 20px;
+    padding-left: 20px;
+    flex-direction: column;
+  }
+  .video-call-left-wrapper {
+    width: 100%;
+  }
+  .video-call-title {
+    font-size: 10px;
+    line-height: 30px;
+  }
+  .video-call-title-wrapper {
+    margin-bottom: 10px;
+  }
+  .video-call-main-title {
+    font-size: 18px;
+    line-height: 25px;
+  }
+  .video-call-text {
+    font-size: 10px;
+    line-height: 20px;
+  }
+  .beta-text {
+    font-size: 6px;
+    line-height: 30px;
+    margin-left: 5px;
+    width: 35px;
+    height: 14px;
+  }
+  .video-call-right-wrapper {
+    margin-top: 50px;
+    max-width: 100%;
+    margin-left: -10px;
+  }
+  .video-call-image {
+    width: 75%;
+    margin-left: 5px;
+  }
+  .video-call-brown-circle {
+    width: 30px;
+    height: 30px;
+    margin-top: -24px;
+  }
+  .video-call-users-wrapper {
+    width: 250px;
+    height: 120px;
+    margin-top: -20px;
+    margin-left: 75px;
+    margin-right: 20px;
+    width: 100%;
+    max-width: 100%;
+    padding: 5px 40px;
+    padding-left: 0px;
+  }
+  .video-call-users-list-space-wrapper {
+    margin-left: 10px;
+  }
+  .video-call-users-list-inner-wrapper {
+    height: 100%;
+  }
+  .video-call-users-list-header {
+    padding-left: 90px;
+  }
+  .video-call-users-list-header span {
+    font-size: 8px;
+    line-height: 15px;
+    width: 25px;
+    margin-left: 10px;
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .schedule-call-button {
+    width: 40px;
+    height: 10px;
+    font-size: 5px;
+    line-height: 0px;
+    margin-top: -1px;
+    margin-right: 20px;
+  }
+  .each-video-call-user {
+    height: 15px;
+  }
+  .each-video-call-user span {
+    font-size: 6px;
+    line-height: 15px;
+    margin-left: 5px;
+    width: 50px;
+  }
+  .each-video-call-user img {
+    width: 10px;
+    height: 10px;
+  }
+  .user-quotes-wrapper {
+    margin-top: 100px;
+    width: 100%;
+  }
+  .user-quotes-subtitle {
+    margin-left: 20px;
+    font-size: 10px;
+    line-height: 30px;
+  }
+  .user-quotes-title {
+    margin-left: 20px;
+    font-size: 18px;
+    line-height: 25px;
+  }
+  .user-quotes-slider {
     height: 150px;
-    border-radius: 75px;
-    margin-top: 70px;
+  }
+  .each-user-quote {
+    width: 266px;
+    min-width: 266px;
+    height: 100px;
+    padding: 15px;
+  }
+  .each-user-quote-text {
+    font-size: 8px;
+    line-height: 15px;
+    color: rgb(3, 17, 73);
+    width: 100%;
+    text-align: center;
+  }
+  .each-user-quote-person-name {
+    font-size: 8px;
+    line-height: 10px;
+  }
+  .each-user-quote-person-position {
+    font-size: 8px;
+    line-height: 10px;
+  }
+  .each-user-quote-person-image {
+    width: 27px;
+    height: 27px;
+    margin-left: 5px;
+  }
+  .footer-wrapper {
+    width: 100%;
+    height: 200px;
+    margin-top: 50px;
+  }
+  .footer-logo {
+    width: 84px;
+    margin: 30px 20px;
+    margin-bottom: 10px;
+  }
+  .copyright-text {
+    display: none;
+  }
+  .footer-links-wrapper {
+    margin: 30px 20px;
+  }
+  .each-footer-link {
+    font-size: 8px;
+    line-height: 10px;
+    width: 50px;
+    margin-right: 10px;
+  }
+  .each-logo {
+    width: 50px;
+    margin: 0px 10px;
   }
 }
 
-@media only screen and (max-width: 600px) and (min-width: 500px) {
-  .logo-above-text {
-    width: 400px;
-    font-size: 14px;
-    line-height: 20px;
+@media only screen and (max-width: 450px) and (min-width: 400px) {
+  .inside-product-background-circle {
+    width: 37px;
+    height: 37px;
+    margin-top: 100px;
+    margin-bottom: 10px;
+    margin-right: 7%;
   }
 }
+
+@media only screen and (max-width: 350px) and (min-width: 300px) {
+  .inside-product-background-circle {
+    width: 37px;
+    height: 37px;
+    margin-top: 80px;
+    margin-bottom: 20px;
+    margin-right: -10px;
+  }
+  .inside-product-gif {
+    width: 280px;
+  }
+}
+
 @media only screen and (max-width: 500px) and (min-width: 300px) {
   .each-logo {
     margin: 0px 10px;
-  }
-  .logo-above-text {
-    width: 300px;
-    font-size: 14px;
-    line-height: 20px;
   }
 }
 @media only screen and (max-width: 350px) and (min-width: 300px) {
   .each-logo {
     width: 30px;
     margin: 0px 10px;
-  }
-  .logo-above-text {
-    width: 300px;
-  }
-}
-
-@media only screen and (max-width: 1200px) and (min-width: 300px) {
-  .info-content-title {
-    font-size: 35px;
-    line-height: 50px;
-  }
-  .info-content-text {
-    font-size: 16px;
-    line-height: 30px;
-  }
-  .seablue-button {
-    font-size: 18px;
-    padding: 15px 40px;
-    margin-top: 30px;
-  }
-  .target-users-left-wrapper {
-    margin-right: 15px;
-  }
-  .target-users-right-wrapper {
-    margin-left: 15px;
-  }
-  .target-users-details-wrapper {
-    width: 500px;
-  }
-  .target-users-list-wrapper {
-    margin-left: 200px;
-    width: calc(100% - 150px);
-    margin-top: -60px;
-  }
-  .target-users-background-circle {
-    margin-left: -50px;
-  }
-}
-@media only screen and (max-width: 1050px) and (min-width: 300px) {
-  .target-users-wrapper {
-    flex-direction: column;
-  }
-  .target-users-left-wrapper {
-    margin-right: 0px;
-    width: 60%;
-  }
-  .target-users-right-wrapper {
-    width: 100%;
-    min-width: 100%;
-    align-items: flex-end;
-    margin-top: 50px;
-    margin-left: 0px;
-  }
-  .target-users-details-wrapper {
-    align-self: flex-start;
-    margin-left: 0px;
-    margin-right: auto;
-  }
-  .target-users-details-image {
-    width: 100px;
-    height: 100px;
-  }
-  .target-users-details-content-text {
-    margin-top: 5px;
-  }
-  .target-users-list-wrapper {
-    margin-left: auto;
-    margin-right: 0px;
-    margin-top: -80px;
-  }
-  .target-users-background-circle {
-    margin-right: auto;
-    margin-left: -40px;
-    margin-top: -60px;
-  }
-}
-@media only screen and (max-width: 700px) and (min-width: 600px) {
-  .target-users-left-wrapper {
-    width: 80%;
-  }
-}
-@media only screen and (max-width: 600px) and (min-width: 300px) {
-  .target-users-left-wrapper {
-    width: 90%;
-  }
-  .target-users-details-wrapper {
-    width: 400px;
-    height: 260px;
-    padding: 25px 25px;
-  }
-  .target-users-list-wrapper {
-    width: calc(100% - 60px);
-    max-width: calc(100% - 60px);
-    margin-left: auto;
-  }
-  .target-users-details-image {
-    width: 75px;
-    height: 75px;
-  }
-  .target-users-details-content-info {
-    margin-left: 15px;
-  }
-  .target-users-details-content-title {
-    font-size: 16px;
-  }
-  .target-users-details-content-text {
-    font-size: 14px;
-    line-height: 20px;
-    margin-top: 0px;
-    height: 60px;
-    overflow: hidden;
-    word-wrap: break-word;
-    text-overflow: ellipsis;
-  }
-  .each-target-users-info-item span {
-    margin-left: 7px;
-    font-size: 12px;
-    line-height: 14px;
-    max-width: 140px;
-    width: 140px;
-    overflow: hidden;
-    word-wrap: break-word;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-  .target-users-details-content-left-column {
-    margin-right: 5px;
-  }
-  .target-users-details-content-right-column {
-    margin-left: 5px;
-  }
-  .target-users-background-circle {
-    width: 80px;
-    height: 80px;
-    border-radius: 40px;
-    margin-top: -40px;
-  }
-}
-@media only screen and (max-width: 500px) and (min-width: 300px) {
-  .target-users-details-wrapper {
-    width: 300px;
-    height: 210px;
-    padding: 20px;
-  }
-  .target-users-details-content-info {
-    margin-left: 8px;
-  }
-  .target-users-details-image {
-    width: 60px;
-    height: 60px;
-  }
-  .target-users-details-content-title {
-    font-size: 14px;
-    line-height: 15px;
-  }
-  .target-users-details-content-text {
-    margin-top: 2px;
-    font-size: 12px;
-    line-height: 15px;
-    height: 45px;
-  }
-  .each-target-users-info-item span {
-    max-width: 100px;
-    width: 100px;
-  }
-  .target-users-details-content-wrapper {
-    margin-top: 20px;
-  }
-  .target-users-list-wrapper {
-    width: calc(100% - 20px);
-    max-width: calc(100% - 20px);
-  }
-  .info-content-title {
-    font-size: 30px;
-    line-height: 44px;
-  }
-  .seablue-button {
-    padding: 15px 20px;
-    font-size: 16px;
-  }
-}
-
-@media only screen and (max-width: 1200px) and (min-width: 300px) {
-  .responses-yellow-background-circle {
-    margin-left: 320px;
-  }
-}
-@media only screen and (max-width: 1000px) and (min-width: 300px) {
-  .responses-wrapper {
-    flex-direction: column;
-  }
-  .responses-left-wrapper {
-    margin-right: 0px;
-  }
-  .responses-right-wrapper {
-    margin-left: 0px;
-    width: 60%;
-    margin-top: 50px;
-  }
-}
-@media only screen and (max-width: 800px) and (min-width: 600px) {
-  .responses-right-wrapper {
-    width: 80%;
-  }
-}
-@media only screen and (max-width: 600px) and (min-width: 300px) {
-  .responses-right-wrapper {
-    width: 100%;
-  }
-}
-@media only screen and (max-width: 550px) and (min-width: 300px) {
-  .responses-left-wrapper {
-    margin-left: -40px;
-  }
-  .responses-histogram-wrapper {
-    margin-left: 70px;
-    margin-top: -80px;
-  }
-  .responses-yellow-background-circle {
-    margin-left: 270px;
-  }
-}
-@media only screen and (max-width: 450px) and (min-width: 300px) {
-  .responses-left-wrapper {
-    margin-left: -40px;
-  }
-  .responses-histogram-wrapper {
-    margin-left: 70px;
-    margin-top: -80px;
-    width: 280px;
-  }
-  .responses-yellow-background-circle {
-    margin-left: 200px;
-  }
-  .responses-histogram-each-column {
-    width: 23px;
-  }
-  .responses-histogram-bottom-line-wrapper {
-    width: 190px;
-  }
-  .responses-histogram-title, .responses-histogram-title-text {
-    font-size: 14px;
-  }
-  .responses-histogram-subtitle span {
-    font-size: 10px;
   }
 }
