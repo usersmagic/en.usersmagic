@@ -469,6 +469,7 @@ block main
                   each user in target_users
                     .each-video-call-user(id=user._id)
                       a.schedule-call-button(href="https://app.usersmagic.com/auth/register" target="_blank") Schedule Video Call
+                      a.schedule-call-button-responsive(href="https://app.usersmagic.com/auth/register" target="_blank") Schedule Call
                       img(src=user.image alt="usersmagic target users")
                       span= user.name
                       span= user.occupation
