@@ -121,7 +121,7 @@ module.exports = (req, res) => {
     {
       name: 'Alptekin Can',
       position: 'CEO, Clay',
-      image: '/res/images/company/user_quotes/teknosa.png',
+      image: '/res/images/company/user_quotes/default.jpeg',
       text: [
         'Usersmagic was key for our growth and user research process as we constantly worked to improve the product for our users',
       ]
@@ -129,7 +129,7 @@ module.exports = (req, res) => {
     {
       name: 'Burak Demir',
       position: 'COO, Zerosum',
-      image: '/res/images/company/user_quotes/teknosa.png',
+      image: '/res/images/company/user_quotes/default.jpeg',
       text: [
         'We are testing our mobile games weekly to improve our them with detailed feedback and insights'
       ]
@@ -143,27 +143,22 @@ module.exports = (req, res) => {
         'why',
         'our users behaved the way they did'
       ]
-    },
-    {
-      name: 'Ceyda Balcı',
-      position: 'Digital Marketing & Content Manager, Teknosa',
-      image: '/res/images/company/user_quotes/teknosa.png',
+    },{
+      name: 'Burak Demir',
+      position: 'COO, Zerosum',
+      image: '/res/images/company/user_quotes/default.jpeg',
       text: [
-        'Usersmagic helped us not only validate our ideas but also really understand',
-        'why',
-        'our users behaved the way they did'
+        'We are testing our mobile games weekly to improve our them with detailed feedback and insights'
       ]
     },
     {
-      name: 'Ceyda Balcı',
-      position: 'Digital Marketing & Content Manager, Teknosa',
-      image: '/res/images/company/user_quotes/teknosa.png',
+      name: 'Alptekin Can',
+      position: 'CEO, Clay',
+      image: '/res/images/company/user_quotes/default.jpeg',
       text: [
-        'Usersmagic helped us not only validate our ideas but also really understand',
-        'why',
-        'our users behaved the way they did'
+        'Usersmagic was key for our growth and user research process as we constantly worked to improve the product for our users',
       ]
-    }
+    },
   ];
   const target = {
     _id: '00000000000',
