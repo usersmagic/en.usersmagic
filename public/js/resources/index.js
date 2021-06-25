@@ -89,8 +89,9 @@ window.onload = () => {
             caseStudiesContent.classList.add("revert-height-animation");
         }
     }
-
-    viewAllButton.addEventListener("click", expandCaseStudies);
+    if (eachCaseStudy.length > 4) {
+      viewAllButton.addEventListener("click", expandCaseStudies);
+    }
 
     const xhr = new XMLHttpRequest();
     xhr.open("GET", "/resources/getAll");

@@ -1,4 +1,9 @@
 
+a {
+  text-decoration: none;
+  color: rgb(24, 25, 31);
+}
+
 hr {
   width: 80%;
   margin-left: 10%;
@@ -144,7 +149,6 @@ hr {
     display: inline-flex;
     flex-wrap: wrap;
     overflow: hidden;
-    margin-bottom: 200px;
     padding: 0 2%;
   }
 
@@ -314,6 +318,7 @@ hr {
 
     .each-case-study-wrapper {
       min-width: 100px;
+      max-width: 100px;
       height: 86px;
       border-radius: 5px;
       box-shadow: 0 0 5px 5px  rgb(151,226,231,0.2);

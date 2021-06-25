@@ -161,10 +161,24 @@ window.onload = () => {
     userQuoteSliders[1].style.display = 'none';
   }
 
-  document.addEventListener('mouseover', event => {
-    if (event.target.classList.contains('responses-questions-person-details-button'))
-      showEmmaUserDetails();
-    else if (document.querySelector('.emma-user-details-wrapper').style.display == 'block')
-      document.querySelector('.emma-user-details-wrapper').style.display = 'none';
-  });
+  document.querySelector('.all-inner-wrapper').addEventListener('scroll', () => {
+    if (document.querySelector('.emma-user-details-wrapper').style.display !== 'none') 
+      document.querySelector('.emma-user-details-wrapper').style.display = 'none'
+  })
+
+  if (typeof window.orientation !== 'undefined') {
+    document.addEventListener('mouseover', event => {
+      if (event.target.classList.contains('responses-questions-person-details-button'))
+        showEmmaUserDetails();
+      else if (document.querySelector('.emma-user-details-wrapper').style.display == 'block')
+        document.querySelector('.emma-user-details-wrapper').style.display = 'none';
+    });
+  } else {
+    document.addEventListener('click', event => {
+      if (event.target.classList.contains('responses-questions-person-details-button'))
+        showEmmaUserDetails();
+      else if (document.querySelector('.emma-user-details-wrapper').style.display == 'block')
+        document.querySelector('.emma-user-details-wrapper').style.display = 'none';
+    });
+  }
 }

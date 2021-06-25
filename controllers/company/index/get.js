@@ -6,8 +6,8 @@ module.exports = (req, res) => {
   const target_users = [
     {
       _id: 'tom',
-      image: '/res/images/company/target_users/tom_small.png',
-      name: 'Tom',
+      image: '/res/images/company/target_users/cole.png',
+      name: 'Cole',
       occupation: 'Student',
       country: '🇺🇸 United States',
       city: '🌁 San Francisco',
@@ -55,9 +55,9 @@ module.exports = (req, res) => {
   ];
   const target_user_details = {
     tom: {
-      name: 'Tom',
-      image: '/res/images/company/target_users/tom.png',
-      text: 'I am a junior at the University of Michigan, where I study Computer Science. I am a tennis player and a soccer fan. I enjoy building new ...',
+      name: 'Cole',
+      image: '/res/images/company/target_users/cole.png',
+      text: 'I am a junior in college, majoring in economics. I am a tennis and soccer player. I am a huge soccer fan. I go to the gym every day and...',
       person: 'College student',
       sport: 'Plays tennis, soccer',
       watch: 'Netflix, Hulu',
@@ -119,13 +119,19 @@ module.exports = (req, res) => {
       ]
     },
     {
-      name: 'Ceyda Balcı',
-      position: 'Digital Marketing & Content Manager, Teknosa',
-      image: '/res/images/company/user_quotes/teknosa.png',
+      name: 'Alptekin Can',
+      position: 'CEO, Clay',
+      image: '/res/images/company/user_quotes/default.jpeg',
       text: [
-        'Usersmagic helped us not only validate our ideas but also really understand',
-        'why',
-        'our users behaved the way they did'
+        'Usersmagic was key for our growth and user research process as we constantly worked to improve the product for our users',
+      ]
+    },
+    {
+      name: 'Burak Demir',
+      position: 'COO, Zerosum',
+      image: '/res/images/company/user_quotes/default.jpeg',
+      text: [
+        'We are testing our mobile games weekly to improve our them with detailed feedback and insights'
       ]
     },
     {
@@ -137,37 +143,22 @@ module.exports = (req, res) => {
         'why',
         'our users behaved the way they did'
       ]
-    },
-    {
-      name: 'Ceyda Balcı',
-      position: 'Digital Marketing & Content Manager, Teknosa',
-      image: '/res/images/company/user_quotes/teknosa.png',
+    },{
+      name: 'Burak Demir',
+      position: 'COO, Zerosum',
+      image: '/res/images/company/user_quotes/default.jpeg',
       text: [
-        'Usersmagic helped us not only validate our ideas but also really understand',
-        'why',
-        'our users behaved the way they did'
+        'We are testing our mobile games weekly to improve our them with detailed feedback and insights'
       ]
     },
     {
-      name: 'Ceyda Balcı',
-      position: 'Digital Marketing & Content Manager, Teknosa',
-      image: '/res/images/company/user_quotes/teknosa.png',
+      name: 'Alptekin Can',
+      position: 'CEO, Clay',
+      image: '/res/images/company/user_quotes/default.jpeg',
       text: [
-        'Usersmagic helped us not only validate our ideas but also really understand',
-        'why',
-        'our users behaved the way they did'
+        'Usersmagic was key for our growth and user research process as we constantly worked to improve the product for our users',
       ]
     },
-    {
-      name: 'Ceyda Balcı',
-      position: 'Digital Marketing & Content Manager, Teknosa',
-      image: '/res/images/company/user_quotes/teknosa.png',
-      text: [
-        'Usersmagic helped us not only validate our ideas but also really understand',
-        'why',
-        'our users behaved the way they did'
-      ]
-    }
   ];
   const target = {
     _id: '00000000000',

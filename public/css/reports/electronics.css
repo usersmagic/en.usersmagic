@@ -43,3 +43,35 @@
 .electronics-report-consumer-wrapper {
   width: 100%;
 }
+@media only screen and (min-width: 300px) and (max-width: 450px) {
+
+  .each-person-photo {
+    width: 40px;
+    height: 40px;
+  }
+
+  .electronics-report-people-wrapper {
+    width: 100%;
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+
+  .each-person {
+    margin: 0;
+  }
+
+  .each-person-text-content {
+    margin-left: 10px;
+    width: 100px;
+  }
+
+  .each-person-text-content-duty, .each-person-text-content-name {
+    font-size: 12px;
+  }
+  .electronics-report-description-text {
+    padding: 0;
+    font-size: 12px;
+    line-height: 20px;
+    margin-bottom: 20px;
+  }
+}
