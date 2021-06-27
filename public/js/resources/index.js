@@ -1,5 +1,5 @@
 
-var viewAllButton = document.getElementById("view-all-button");
+var viewAllButton = document.querySelectorAll(".case-studies-view-all-span");
 var caseStudiesContent = document.getElementById("case-studies-content");
 var eachCaseStudy = document.querySelectorAll(".each-case-study-wrapper");
 var caseStudyMargin;
@@ -62,35 +62,39 @@ window.onload = () => {
     headerListener();
     caseStudiesContent = document.getElementById("case-studies-content");
     eachCaseStudy = document.querySelectorAll(".each-case-study-wrapper");
-    viewAllButton = document.getElementById("view-all-button");
+    viewAllButton = document.querySelectorAll(".case-studies-view-all-span");
     const initialHeightOfCaseStudyContent = caseStudiesContent.offsetHeight;
 
     if ((typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1)) {
         ;
     } else {
         adjustResponsiveDesign();
+        viewAllButton.forEach(eachViewAllButton => {
+          console.log(eachViewAllButton.parentNode.nextSibling.nextSibling.childNodes.length)
+          console.log(numOfElementsVisible)
+          if (eachViewAllButton.parentNode.nextSibling.nextSibling.childNodes.length > numOfElementsVisible) {
+            eachViewAllButton.addEventListener("click", expandCaseStudies);
+          }
+        })
     }
 
     function expandCaseStudies () {
-        if (caseStudiesContent.offsetHeight === initialHeightOfCaseStudyContent) {
-            if (caseStudiesContent.classList.contains("revert-height-animation")) {
-                caseStudiesContent.classList.remove("revert-height-animation");
+        if (event.target.parentNode.nextSibling.nextSibling.offsetHeight === initialHeightOfCaseStudyContent) {
+            if (event.target.parentNode.nextSibling.nextSibling.classList.contains("revert-height-animation")) {
+              event.target.parentNode.nextSibling.nextSibling.classList.remove("revert-height-animation");
             }
-
-            caseStudiesContent.classList.add("increase-height-animation");
-            viewAllButton.innerHTML = "View less";
+            
+            event.target.parentNode.nextSibling.nextSibling.classList.add("increase-height-animation");
+            event.target.innerHTML = "View less";
 
         } else {
-            viewAllButton.innerHTML = "View all";
+            event.target.innerHTML = "View all";
             
-            if (caseStudiesContent.classList.contains("increase-height-animation")) {
-                caseStudiesContent.classList.remove("increase-height-animation");         
+            if (event.target.parentNode.nextSibling.nextSibling.classList.contains("increase-height-animation")) {
+              event.target.parentNode.nextSibling.nextSibling.classList.remove("increase-height-animation");         
             }
-            caseStudiesContent.classList.add("revert-height-animation");
+            event.target.parentNode.nextSibling.nextSibling.classList.add("revert-height-animation");
         }
-    }
-    if (eachCaseStudy.length > 4) {
-      viewAllButton.addEventListener("click", expandCaseStudies);
     }
 
     const xhr = new XMLHttpRequest();
