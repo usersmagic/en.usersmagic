@@ -6,6 +6,7 @@ const http = require('http');
 const mongoose = require('mongoose');
 const os = require('os');
 const path = require('path');
+const requestCountry = require('request-country');
 
 const numCPUs = process.env.WEB_CONCURRENCY || os.cpus().length;
 
@@ -45,6 +46,7 @@ if (cluster.isMaster) {
 
   app.use((req, res, next) => {
     req.query = (req.query && typeof req.query == 'object' ? req.query : {});
+    req.country = requestCountry(req);
     next();
   });
   
