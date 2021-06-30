@@ -156,7 +156,7 @@ hr {
     width: 231px;
     height: 199px;
     border-radius: 20px;
-    box-shadow: 0 0 10px 10px  rgb(151,226,231,0.2);
+    box-shadow: 0px 14px 34px rgba(134, 174, 181, 0.4);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -321,7 +321,7 @@ hr {
       max-width: 100px;
       height: 86px;
       border-radius: 5px;
-      box-shadow: 0 0 5px 5px  rgb(151,226,231,0.2);
+      box-shadow: 0px 5px 8px rgba(134, 174, 181, 0.4);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
