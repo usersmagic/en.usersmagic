@@ -1,6 +1,5 @@
 // Get /company landing page
 
-const Question = require('../../../models/question/Question');
 
 module.exports = (req, res) => {
   const target_users = [
@@ -9,7 +8,7 @@ module.exports = (req, res) => {
       image: '/res/images/company/target_users/cole.png',
       name: 'Cole',
       occupation: 'Student',
-      country: '🇺🇸 United States',
+      country: '🇺🇸 USA',
       city: '🌁 San Francisco',
       paid_subscriptions: '🌁 San Francisco',
       hobbies: '⚽️ Soccer',
@@ -20,11 +19,11 @@ module.exports = (req, res) => {
       _id: 'emma',
       image: '/res/images/company/target_users/emma_small.png',
       name: 'Emma',
-      occupation: 'Recent Grad',
-      country: '🇺🇸 United States',
+      occupation: 'New Graduate',
+      country: '🇺🇸 USA',
       city: '💙 Ann Arbor',
       paid_subscriptions: '💙 Ann Arbor',
-      hobbies: '🎨 Drawing',
+      hobbies: '🎨 Painting',
       favorite_products: '🚲 Peloton',
       favorite_apps: '🏋️‍ Spotify'
     },
@@ -45,9 +44,9 @@ module.exports = (req, res) => {
       image: '/res/images/company/target_users/sarah_small.png',
       name: 'Sarah',
       occupation: 'Student',
-      country: '🇬🇧 UK',
-      city: '🚇 London',
-      paid_subscriptions: '🚇 London',
+      country: '🇬🇧 İngiltere',
+      city: '🚇 Londra',
+      paid_subscriptions: '🚇 Londra',
       hobbies: '🎹 Piano',
       favorite_products: '⌚️ Apple Watch',
       favorite_apps: '🌱 Lifesum'
@@ -55,11 +54,11 @@ module.exports = (req, res) => {
   ];
   const target_user_details = {
     tom: {
-      name: 'Cole',
+      name: 'Mete',
       image: '/res/images/company/target_users/cole.png',
-      text: 'I am a junior in college, majoring in economics. I am a tennis and soccer player. I am a huge soccer fan. I go to the gym every day and...',
-      person: 'College student',
-      sport: 'Plays tennis, soccer',
+      text: 'I am a freshman at Boğaziçi University, studying business administration. I am a former tennis player and a Fenerbahçe fan. So much for marketing...',
+      person: 'College Student',
+      sport: 'Tennis, Soccer',
       watch: 'Netflix, Hulu',
       music: 'Spotify, Pop & Deep Music',
       shopping: 'Amazon, Mercari',
@@ -70,9 +69,9 @@ module.exports = (req, res) => {
     emma: {
       name: 'Emma',
       image: '/res/images/company/target_users/emma.png',
-      text: 'I am recent graduate with a degree in Master of Management. I am exploring opportunities within consulting and analytics. I am interes...',
-      person: 'Recent graduate',
-      sport: 'Tennis, Zumba, HIIT',
+      text: 'I just graduated from the business department. I am looking for new opportunities in consulting and analytics. Related to...',
+      person: 'New Graduate',
+      sport: 'Tenis, Zumba, HIIT',
       watch: 'Netflix, Hulu, Disney +',
       music: 'Spotify, Pop Music',
       shopping: 'Amazon, Facebook',
@@ -83,9 +82,9 @@ module.exports = (req, res) => {
     yunus: {
       name: 'Yunus',
       image: '/res/images/company/target_users/yunus.png',
-      text: 'I am a high school student interested in Computer Science and Physics. I enjoy playing chess and practicing French. ',
-      person: 'High school student',
-      sport: 'Plays chess',
+      text: 'I am a student interested in CS and physics. I like playing chess and speaking french.',
+      person: 'High School Student',
+      sport: 'Chess',
       watch: 'Netflix, BluTV',
       music: 'Spotify, Classical Music',
       shopping: 'Amazon, Trendyol',
@@ -96,8 +95,8 @@ module.exports = (req, res) => {
     sarah: {
       name: 'Sarah',
       image: '/res/images/company/target_users/sarah.png',
-      text: 'I am a student in London. I do yoga and pilates daily. I am interested in pursuing a career in product design.  ',
-      person: 'College student',
+      text: 'I am student from London. I do daily yoga and pilates. I want to pursue a carreer on product design.',
+      person: 'College Student',
       sport: 'Yoga, pilates',
       watch: 'Netflix, Disney +',
       music: 'Spotify',
@@ -113,25 +112,23 @@ module.exports = (req, res) => {
       position: 'Digital Marketing & Content Manager, Teknosa',
       image: '/res/images/company/user_quotes/teknosa.png',
       text: [
-        'Usersmagic helped us not only validate our ideas but also really understand',
-        'why',
-        'our users behaved the way they did'
+        'Usersmagic helped us not only validate our ideas but also really understand why our users behaved the way they did',
       ]
     },
     {
       name: 'Alptekin Can',
       position: 'CEO, Clay',
-      image: '/res/images/company/user_quotes/default.jpeg',
+      image: '/res/images/company/user_quotes/default.png',
       text: [
-        'Usersmagic was key for our growth and user research process as we constantly worked to improve the product for our users',
+        'Using Usersmagic on a regular basis, we quickly developed our apps and achieved growth by providing a better user experience',
       ]
     },
     {
       name: 'Burak Demir',
       position: 'COO, Zerosum',
-      image: '/res/images/company/user_quotes/default.jpeg',
+      image: '/res/images/company/user_quotes/default.png',
       text: [
-        'We are testing our mobile games weekly to improve our them with detailed feedback and insights'
+        'Thanks to the detailed feedback and answers we received on Usersmagic, we can improve our games quickly.'
       ]
     },
     {
@@ -139,24 +136,23 @@ module.exports = (req, res) => {
       position: 'Digital Marketing & Content Manager, Teknosa',
       image: '/res/images/company/user_quotes/teknosa.png',
       text: [
-        'Usersmagic helped us not only validate our ideas but also really understand',
-        'why',
-        'our users behaved the way they did'
-      ]
-    },{
-      name: 'Burak Demir',
-      position: 'COO, Zerosum',
-      image: '/res/images/company/user_quotes/default.jpeg',
-      text: [
-        'We are testing our mobile games weekly to improve our them with detailed feedback and insights'
+        'Usersmagic helped us not only validate our ideas but also really understand why our users behaved the way they did',
       ]
     },
     {
       name: 'Alptekin Can',
       position: 'CEO, Clay',
-      image: '/res/images/company/user_quotes/default.jpeg',
+      image: '/res/images/company/user_quotes/default.png',
       text: [
-        'Usersmagic was key for our growth and user research process as we constantly worked to improve the product for our users',
+        'Using Usersmagic on a regular basis, we quickly developed our apps and achieved growth by providing a better user experience',
+      ]
+    },
+    {
+      name: 'Burak Demir',
+      position: 'COO, Zerosum',
+      image: '/res/images/company/user_quotes/default.png',
+      text: [
+        'Thanks to the detailed feedback and answers we received on Usersmagic, we can improve our games quickly.'
       ]
     },
   ];
@@ -224,25 +220,20 @@ module.exports = (req, res) => {
     }
   ];
 
-  Question.getFiltersByCountry(target.country, (err, filters) => {
-    if (err) return res.redirect('/tester');
-
-    return res.render('company/index', {
-      page: 'company/index',
-      title: 'Unleash Your Users\' Magic',
-      meta: 'company',
-      includes: {
-        external: {
-          css: ['page', 'general', 'header', 'confirm', 'logo', 'inputs', 'buttons', 'fontawesome', 'createPage', 'filterPage', 'reportPage'],
-          js: ['page', 'duplicateElement', 'confirm', 'dragAndDrop', 'buttonListeners', 'createPage', 'filterPage', 'reportPage', 'headerListener']
-        }
-      },
-      target_users,
-      target_user_details,
-      user_quotes,
-      target,
-      filters,
-      questions
-    });
+  return res.render('company/index', {
+    page: 'company/index',
+    title: 'Hedef kitlenizi belirleyin',
+    meta: 'company',
+    includes: {
+      external: {
+        css: ['page', 'general', 'header', 'confirm', 'logo', 'inputs', 'buttons', 'fontawesome', 'createPage', 'filterPage', 'reportPage'],
+        js: ['page', 'duplicateElement', 'confirm', 'dragAndDrop', 'buttonListeners', 'createPage', 'filterPage', 'reportPage', 'headerListener']
+      }
+    },
+    target_users,
+    target_user_details,
+    user_quotes,
+    target,
+    questions
   });
 }

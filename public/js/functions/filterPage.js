@@ -244,22 +244,6 @@ function createShowFiltersWrapper () {
   });
 }
 
-// Get the filter json data from the server side and create the filters global object
-function getFiltersData () {
-  const filtersJSON = JSON.parse(document.getElementById('json-filters-data').value);
-
-  filtersJSON.forEach(filter => {
-    filters[filter._id.toString()] = filter;
-  });
-}
-
-// Get the target json data from the server side
-function getTargetData () {
-  target = JSON.parse(document.getElementById('json-target-data').value);
-  filtersData = target.filters;
-  createShowFiltersWrapper();
-}
-
 // Create an error message after the given element with the given error message
 function createErrorMessage (element, message) {
   const errorText = document.createElement('span');
@@ -330,8 +314,6 @@ function finishTarget () {
 
 // Instead of window.onload, call this on main file
 function filterPageListener() {
-  getFiltersData(); // Load filters data on reload
-  getTargetData(); // Load target data on reload
 
   document.addEventListener('click', event => {
     // Click a filter from filters menu

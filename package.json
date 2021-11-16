@@ -28,7 +28,6 @@
     "express": "^4.17.1",
     "mongoose": "^5.12.12",
     "pug": "^3.0.2",
-    "request-country": "^0.1.5",
     "serve-favicon": "^2.5.0",
     "validator": "^13.6.0"
   }
