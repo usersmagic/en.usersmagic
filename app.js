@@ -26,6 +26,7 @@ if (cluster.isMaster) {
 
   const PORT = process.env.PORT || 3000;
 
+  const agreementRouteController = require('./routes/agreementRoute');
   const companyRouteController = require('./routes/companyRoute');
   const indexRouteController = require('./routes/indexRoute');
 
@@ -41,6 +42,7 @@ if (cluster.isMaster) {
   });
   
   app.use('/', indexRouteController);
+  app.use('/agreement', agreementRouteController);
   app.use('/company', companyRouteController);
   
   server.listen(PORT, () => {    
